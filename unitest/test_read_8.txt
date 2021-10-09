@@ -1,0 +1,726 @@
+	Model_SetupStored[0].Description	
+	Model_SetupStored[0].Number	
+	Model_SetupStored[0].Date	
+	Model_SetupStored[0].Time	
+	Model_SetupStored[0].AssemblyPN	
+	Model_SetupStored[0].AssemblyREV	
+	Model_SetupStored[0].IShaftTube_PN	
+	Model_SetupStored[0].IShaftTube_REV	
+	Model_SetupStored[0].LOT_DoubleDPlug_PN	
+	Model_SetupStored[0].LOT_RoundPlug_PN	
+	Model_SetupStored[0].LastModification	
+	Model_SetupStored[0].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[0].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[0].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[0].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[0].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[0].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[0].Changeover_Tool_1a	0
+	Model_SetupStored[0].Changeover_Tool_1b	0
+	Model_SetupStored[0].Changeover_Tool_32	0
+	Model_SetupStored[0].Changeover_Tool_32_Mid	0
+	Model_SetupStored[0].PrototypePart	0
+	Model_SetupStored[1].Description	Ref 1a
+	Model_SetupStored[1].Number	88
+	Model_SetupStored[1].Date	
+	Model_SetupStored[1].Time	
+	Model_SetupStored[1].AssemblyPN	38290539
+	Model_SetupStored[1].AssemblyREV	002
+	Model_SetupStored[1].IShaftTube_PN	38288873
+	Model_SetupStored[1].IShaftTube_REV	003
+	Model_SetupStored[1].LOT_DoubleDPlug_PN	38272992
+	Model_SetupStored[1].LOT_RoundPlug_PN	38238039
+	Model_SetupStored[1].LastModification	21/04/2021 09:43
+	Model_SetupStored[1].KistlerUpperPress_ProgramNo	3
+	Model_SetupStored[1].KistlerLowerPress_ProgramNo	3
+	Model_SetupStored[1].KistlerUpperPress_ActiveEO2	1
+	Model_SetupStored[1].KistlerUpperPress_ActiveEO3	1
+	Model_SetupStored[1].KistlerLowerPress_ActiveEO2	1
+	Model_SetupStored[1].KistlerLowerPress_ActiveEO3	1
+	Model_SetupStored[1].Changeover_Tool_1a	1
+	Model_SetupStored[1].Changeover_Tool_1b	0
+	Model_SetupStored[1].Changeover_Tool_32	0
+	Model_SetupStored[1].Changeover_Tool_32_Mid	0
+	Model_SetupStored[1].PrototypePart	0
+	Model_SetupStored[2].Description	Ref 1b
+	Model_SetupStored[2].Number	88
+	Model_SetupStored[2].Date	
+	Model_SetupStored[2].Time	
+	Model_SetupStored[2].AssemblyPN	38255632
+	Model_SetupStored[2].AssemblyREV	001
+	Model_SetupStored[2].IShaftTube_PN	38262879
+	Model_SetupStored[2].IShaftTube_REV	002
+	Model_SetupStored[2].LOT_DoubleDPlug_PN	38272992
+	Model_SetupStored[2].LOT_RoundPlug_PN	38238039
+	Model_SetupStored[2].LastModification	02/02/1998 02:08
+	Model_SetupStored[2].KistlerUpperPress_ProgramNo	3
+	Model_SetupStored[2].KistlerLowerPress_ProgramNo	3
+	Model_SetupStored[2].KistlerUpperPress_ActiveEO2	1
+	Model_SetupStored[2].KistlerUpperPress_ActiveEO3	1
+	Model_SetupStored[2].KistlerLowerPress_ActiveEO2	1
+	Model_SetupStored[2].KistlerLowerPress_ActiveEO3	1
+	Model_SetupStored[2].Changeover_Tool_1a	0
+	Model_SetupStored[2].Changeover_Tool_1b	1
+	Model_SetupStored[2].Changeover_Tool_32	0
+	Model_SetupStored[2].Changeover_Tool_32_Mid	0
+	Model_SetupStored[2].PrototypePart	0
+	Model_SetupStored[3].Description	Ref 3.2
+	Model_SetupStored[3].Number	88
+	Model_SetupStored[3].Date	
+	Model_SetupStored[3].Time	
+	Model_SetupStored[3].AssemblyPN	38255632
+	Model_SetupStored[3].AssemblyREV	001
+	Model_SetupStored[3].IShaftTube_PN	38262879
+	Model_SetupStored[3].IShaftTube_REV	002
+	Model_SetupStored[3].LOT_DoubleDPlug_PN	38272992
+	Model_SetupStored[3].LOT_RoundPlug_PN	38238039
+	Model_SetupStored[3].LastModification	02/02/1998 02:08
+	Model_SetupStored[3].KistlerUpperPress_ProgramNo	3
+	Model_SetupStored[3].KistlerLowerPress_ProgramNo	3
+	Model_SetupStored[3].KistlerUpperPress_ActiveEO2	1
+	Model_SetupStored[3].KistlerUpperPress_ActiveEO3	1
+	Model_SetupStored[3].KistlerLowerPress_ActiveEO2	1
+	Model_SetupStored[3].KistlerLowerPress_ActiveEO3	1
+	Model_SetupStored[3].Changeover_Tool_1a	0
+	Model_SetupStored[3].Changeover_Tool_1b	0
+	Model_SetupStored[3].Changeover_Tool_32	1
+	Model_SetupStored[3].Changeover_Tool_32_Mid	0
+	Model_SetupStored[3].PrototypePart	0
+	Model_SetupStored[4].Description	Ref 3.2 Middle
+	Model_SetupStored[4].Number	88
+	Model_SetupStored[4].Date	
+	Model_SetupStored[4].Time	
+	Model_SetupStored[4].AssemblyPN	38255632
+	Model_SetupStored[4].AssemblyREV	001
+	Model_SetupStored[4].IShaftTube_PN	38262879
+	Model_SetupStored[4].IShaftTube_REV	002
+	Model_SetupStored[4].LOT_DoubleDPlug_PN	38272992
+	Model_SetupStored[4].LOT_RoundPlug_PN	38238039
+	Model_SetupStored[4].LastModification	02/02/1998 02:08
+	Model_SetupStored[4].KistlerUpperPress_ProgramNo	3
+	Model_SetupStored[4].KistlerLowerPress_ProgramNo	3
+	Model_SetupStored[4].KistlerUpperPress_ActiveEO2	1
+	Model_SetupStored[4].KistlerUpperPress_ActiveEO3	1
+	Model_SetupStored[4].KistlerLowerPress_ActiveEO2	1
+	Model_SetupStored[4].KistlerLowerPress_ActiveEO3	1
+	Model_SetupStored[4].Changeover_Tool_1a	0
+	Model_SetupStored[4].Changeover_Tool_1b	0
+	Model_SetupStored[4].Changeover_Tool_32	0
+	Model_SetupStored[4].Changeover_Tool_32_Mid	1
+	Model_SetupStored[4].PrototypePart	0
+	Model_SetupStored[5].Description	
+	Model_SetupStored[5].Number	
+	Model_SetupStored[5].Date	
+	Model_SetupStored[5].Time	
+	Model_SetupStored[5].AssemblyPN	
+	Model_SetupStored[5].AssemblyREV	
+	Model_SetupStored[5].IShaftTube_PN	
+	Model_SetupStored[5].IShaftTube_REV	
+	Model_SetupStored[5].LOT_DoubleDPlug_PN	
+	Model_SetupStored[5].LOT_RoundPlug_PN	
+	Model_SetupStored[5].LastModification	
+	Model_SetupStored[5].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[5].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[5].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[5].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[5].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[5].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[5].Changeover_Tool_1a	0
+	Model_SetupStored[5].Changeover_Tool_1b	0
+	Model_SetupStored[5].Changeover_Tool_32	0
+	Model_SetupStored[5].Changeover_Tool_32_Mid	0
+	Model_SetupStored[5].PrototypePart	0
+	Model_SetupStored[6].Description	
+	Model_SetupStored[6].Number	
+	Model_SetupStored[6].Date	
+	Model_SetupStored[6].Time	
+	Model_SetupStored[6].AssemblyPN	
+	Model_SetupStored[6].AssemblyREV	
+	Model_SetupStored[6].IShaftTube_PN	
+	Model_SetupStored[6].IShaftTube_REV	
+	Model_SetupStored[6].LOT_DoubleDPlug_PN	
+	Model_SetupStored[6].LOT_RoundPlug_PN	
+	Model_SetupStored[6].LastModification	
+	Model_SetupStored[6].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[6].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[6].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[6].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[6].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[6].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[6].Changeover_Tool_1a	0
+	Model_SetupStored[6].Changeover_Tool_1b	0
+	Model_SetupStored[6].Changeover_Tool_32	0
+	Model_SetupStored[6].Changeover_Tool_32_Mid	0
+	Model_SetupStored[6].PrototypePart	0
+	Model_SetupStored[7].Description	
+	Model_SetupStored[7].Number	
+	Model_SetupStored[7].Date	
+	Model_SetupStored[7].Time	
+	Model_SetupStored[7].AssemblyPN	
+	Model_SetupStored[7].AssemblyREV	
+	Model_SetupStored[7].IShaftTube_PN	
+	Model_SetupStored[7].IShaftTube_REV	
+	Model_SetupStored[7].LOT_DoubleDPlug_PN	
+	Model_SetupStored[7].LOT_RoundPlug_PN	
+	Model_SetupStored[7].LastModification	
+	Model_SetupStored[7].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[7].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[7].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[7].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[7].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[7].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[7].Changeover_Tool_1a	0
+	Model_SetupStored[7].Changeover_Tool_1b	0
+	Model_SetupStored[7].Changeover_Tool_32	0
+	Model_SetupStored[7].Changeover_Tool_32_Mid	0
+	Model_SetupStored[7].PrototypePart	0
+	Model_SetupStored[8].Description	
+	Model_SetupStored[8].Number	
+	Model_SetupStored[8].Date	
+	Model_SetupStored[8].Time	
+	Model_SetupStored[8].AssemblyPN	
+	Model_SetupStored[8].AssemblyREV	
+	Model_SetupStored[8].IShaftTube_PN	
+	Model_SetupStored[8].IShaftTube_REV	
+	Model_SetupStored[8].LOT_DoubleDPlug_PN	
+	Model_SetupStored[8].LOT_RoundPlug_PN	
+	Model_SetupStored[8].LastModification	
+	Model_SetupStored[8].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[8].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[8].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[8].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[8].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[8].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[8].Changeover_Tool_1a	0
+	Model_SetupStored[8].Changeover_Tool_1b	0
+	Model_SetupStored[8].Changeover_Tool_32	0
+	Model_SetupStored[8].Changeover_Tool_32_Mid	0
+	Model_SetupStored[8].PrototypePart	0
+	Model_SetupStored[9].Description	
+	Model_SetupStored[9].Number	
+	Model_SetupStored[9].Date	
+	Model_SetupStored[9].Time	
+	Model_SetupStored[9].AssemblyPN	
+	Model_SetupStored[9].AssemblyREV	
+	Model_SetupStored[9].IShaftTube_PN	
+	Model_SetupStored[9].IShaftTube_REV	
+	Model_SetupStored[9].LOT_DoubleDPlug_PN	
+	Model_SetupStored[9].LOT_RoundPlug_PN	
+	Model_SetupStored[9].LastModification	
+	Model_SetupStored[9].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[9].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[9].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[9].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[9].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[9].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[9].Changeover_Tool_1a	0
+	Model_SetupStored[9].Changeover_Tool_1b	0
+	Model_SetupStored[9].Changeover_Tool_32	0
+	Model_SetupStored[9].Changeover_Tool_32_Mid	0
+	Model_SetupStored[9].PrototypePart	0
+	Model_SetupStored[10].Description	
+	Model_SetupStored[10].Number	
+	Model_SetupStored[10].Date	
+	Model_SetupStored[10].Time	
+	Model_SetupStored[10].AssemblyPN	
+	Model_SetupStored[10].AssemblyREV	
+	Model_SetupStored[10].IShaftTube_PN	
+	Model_SetupStored[10].IShaftTube_REV	
+	Model_SetupStored[10].LOT_DoubleDPlug_PN	
+	Model_SetupStored[10].LOT_RoundPlug_PN	
+	Model_SetupStored[10].LastModification	
+	Model_SetupStored[10].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[10].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[10].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[10].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[10].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[10].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[10].Changeover_Tool_1a	0
+	Model_SetupStored[10].Changeover_Tool_1b	0
+	Model_SetupStored[10].Changeover_Tool_32	0
+	Model_SetupStored[10].Changeover_Tool_32_Mid	0
+	Model_SetupStored[10].PrototypePart	0
+	Model_SetupStored[11].Description	
+	Model_SetupStored[11].Number	
+	Model_SetupStored[11].Date	
+	Model_SetupStored[11].Time	
+	Model_SetupStored[11].AssemblyPN	
+	Model_SetupStored[11].AssemblyREV	
+	Model_SetupStored[11].IShaftTube_PN	
+	Model_SetupStored[11].IShaftTube_REV	
+	Model_SetupStored[11].LOT_DoubleDPlug_PN	
+	Model_SetupStored[11].LOT_RoundPlug_PN	
+	Model_SetupStored[11].LastModification	
+	Model_SetupStored[11].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[11].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[11].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[11].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[11].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[11].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[11].Changeover_Tool_1a	0
+	Model_SetupStored[11].Changeover_Tool_1b	0
+	Model_SetupStored[11].Changeover_Tool_32	0
+	Model_SetupStored[11].Changeover_Tool_32_Mid	0
+	Model_SetupStored[11].PrototypePart	0
+	Model_SetupStored[12].Description	
+	Model_SetupStored[12].Number	
+	Model_SetupStored[12].Date	
+	Model_SetupStored[12].Time	
+	Model_SetupStored[12].AssemblyPN	
+	Model_SetupStored[12].AssemblyREV	
+	Model_SetupStored[12].IShaftTube_PN	
+	Model_SetupStored[12].IShaftTube_REV	
+	Model_SetupStored[12].LOT_DoubleDPlug_PN	
+	Model_SetupStored[12].LOT_RoundPlug_PN	
+	Model_SetupStored[12].LastModification	
+	Model_SetupStored[12].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[12].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[12].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[12].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[12].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[12].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[12].Changeover_Tool_1a	0
+	Model_SetupStored[12].Changeover_Tool_1b	0
+	Model_SetupStored[12].Changeover_Tool_32	0
+	Model_SetupStored[12].Changeover_Tool_32_Mid	0
+	Model_SetupStored[12].PrototypePart	0
+	Model_SetupStored[13].Description	
+	Model_SetupStored[13].Number	
+	Model_SetupStored[13].Date	
+	Model_SetupStored[13].Time	
+	Model_SetupStored[13].AssemblyPN	
+	Model_SetupStored[13].AssemblyREV	
+	Model_SetupStored[13].IShaftTube_PN	
+	Model_SetupStored[13].IShaftTube_REV	
+	Model_SetupStored[13].LOT_DoubleDPlug_PN	
+	Model_SetupStored[13].LOT_RoundPlug_PN	
+	Model_SetupStored[13].LastModification	
+	Model_SetupStored[13].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[13].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[13].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[13].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[13].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[13].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[13].Changeover_Tool_1a	0
+	Model_SetupStored[13].Changeover_Tool_1b	0
+	Model_SetupStored[13].Changeover_Tool_32	0
+	Model_SetupStored[13].Changeover_Tool_32_Mid	0
+	Model_SetupStored[13].PrototypePart	0
+	Model_SetupStored[14].Description	
+	Model_SetupStored[14].Number	
+	Model_SetupStored[14].Date	
+	Model_SetupStored[14].Time	
+	Model_SetupStored[14].AssemblyPN	
+	Model_SetupStored[14].AssemblyREV	
+	Model_SetupStored[14].IShaftTube_PN	
+	Model_SetupStored[14].IShaftTube_REV	
+	Model_SetupStored[14].LOT_DoubleDPlug_PN	
+	Model_SetupStored[14].LOT_RoundPlug_PN	
+	Model_SetupStored[14].LastModification	
+	Model_SetupStored[14].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[14].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[14].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[14].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[14].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[14].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[14].Changeover_Tool_1a	0
+	Model_SetupStored[14].Changeover_Tool_1b	0
+	Model_SetupStored[14].Changeover_Tool_32	0
+	Model_SetupStored[14].Changeover_Tool_32_Mid	0
+	Model_SetupStored[14].PrototypePart	0
+	Model_SetupStored[15].Description	
+	Model_SetupStored[15].Number	
+	Model_SetupStored[15].Date	
+	Model_SetupStored[15].Time	
+	Model_SetupStored[15].AssemblyPN	
+	Model_SetupStored[15].AssemblyREV	
+	Model_SetupStored[15].IShaftTube_PN	
+	Model_SetupStored[15].IShaftTube_REV	
+	Model_SetupStored[15].LOT_DoubleDPlug_PN	
+	Model_SetupStored[15].LOT_RoundPlug_PN	
+	Model_SetupStored[15].LastModification	
+	Model_SetupStored[15].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[15].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[15].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[15].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[15].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[15].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[15].Changeover_Tool_1a	0
+	Model_SetupStored[15].Changeover_Tool_1b	0
+	Model_SetupStored[15].Changeover_Tool_32	0
+	Model_SetupStored[15].Changeover_Tool_32_Mid	0
+	Model_SetupStored[15].PrototypePart	0
+	Model_SetupStored[16].Description	
+	Model_SetupStored[16].Number	
+	Model_SetupStored[16].Date	
+	Model_SetupStored[16].Time	
+	Model_SetupStored[16].AssemblyPN	
+	Model_SetupStored[16].AssemblyREV	
+	Model_SetupStored[16].IShaftTube_PN	
+	Model_SetupStored[16].IShaftTube_REV	
+	Model_SetupStored[16].LOT_DoubleDPlug_PN	
+	Model_SetupStored[16].LOT_RoundPlug_PN	
+	Model_SetupStored[16].LastModification	
+	Model_SetupStored[16].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[16].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[16].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[16].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[16].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[16].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[16].Changeover_Tool_1a	0
+	Model_SetupStored[16].Changeover_Tool_1b	0
+	Model_SetupStored[16].Changeover_Tool_32	0
+	Model_SetupStored[16].Changeover_Tool_32_Mid	0
+	Model_SetupStored[16].PrototypePart	0
+	Model_SetupStored[17].Description	
+	Model_SetupStored[17].Number	
+	Model_SetupStored[17].Date	
+	Model_SetupStored[17].Time	
+	Model_SetupStored[17].AssemblyPN	
+	Model_SetupStored[17].AssemblyREV	
+	Model_SetupStored[17].IShaftTube_PN	
+	Model_SetupStored[17].IShaftTube_REV	
+	Model_SetupStored[17].LOT_DoubleDPlug_PN	
+	Model_SetupStored[17].LOT_RoundPlug_PN	
+	Model_SetupStored[17].LastModification	
+	Model_SetupStored[17].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[17].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[17].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[17].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[17].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[17].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[17].Changeover_Tool_1a	0
+	Model_SetupStored[17].Changeover_Tool_1b	0
+	Model_SetupStored[17].Changeover_Tool_32	0
+	Model_SetupStored[17].Changeover_Tool_32_Mid	0
+	Model_SetupStored[17].PrototypePart	0
+	Model_SetupStored[18].Description	
+	Model_SetupStored[18].Number	
+	Model_SetupStored[18].Date	
+	Model_SetupStored[18].Time	
+	Model_SetupStored[18].AssemblyPN	
+	Model_SetupStored[18].AssemblyREV	
+	Model_SetupStored[18].IShaftTube_PN	
+	Model_SetupStored[18].IShaftTube_REV	
+	Model_SetupStored[18].LOT_DoubleDPlug_PN	
+	Model_SetupStored[18].LOT_RoundPlug_PN	
+	Model_SetupStored[18].LastModification	
+	Model_SetupStored[18].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[18].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[18].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[18].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[18].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[18].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[18].Changeover_Tool_1a	0
+	Model_SetupStored[18].Changeover_Tool_1b	0
+	Model_SetupStored[18].Changeover_Tool_32	0
+	Model_SetupStored[18].Changeover_Tool_32_Mid	0
+	Model_SetupStored[18].PrototypePart	0
+	Model_SetupStored[19].Description	
+	Model_SetupStored[19].Number	
+	Model_SetupStored[19].Date	
+	Model_SetupStored[19].Time	
+	Model_SetupStored[19].AssemblyPN	
+	Model_SetupStored[19].AssemblyREV	
+	Model_SetupStored[19].IShaftTube_PN	
+	Model_SetupStored[19].IShaftTube_REV	
+	Model_SetupStored[19].LOT_DoubleDPlug_PN	
+	Model_SetupStored[19].LOT_RoundPlug_PN	
+	Model_SetupStored[19].LastModification	
+	Model_SetupStored[19].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[19].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[19].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[19].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[19].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[19].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[19].Changeover_Tool_1a	0
+	Model_SetupStored[19].Changeover_Tool_1b	0
+	Model_SetupStored[19].Changeover_Tool_32	0
+	Model_SetupStored[19].Changeover_Tool_32_Mid	0
+	Model_SetupStored[19].PrototypePart	0
+	Model_SetupStored[20].Description	
+	Model_SetupStored[20].Number	
+	Model_SetupStored[20].Date	
+	Model_SetupStored[20].Time	
+	Model_SetupStored[20].AssemblyPN	
+	Model_SetupStored[20].AssemblyREV	
+	Model_SetupStored[20].IShaftTube_PN	
+	Model_SetupStored[20].IShaftTube_REV	
+	Model_SetupStored[20].LOT_DoubleDPlug_PN	
+	Model_SetupStored[20].LOT_RoundPlug_PN	
+	Model_SetupStored[20].LastModification	
+	Model_SetupStored[20].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[20].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[20].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[20].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[20].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[20].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[20].Changeover_Tool_1a	0
+	Model_SetupStored[20].Changeover_Tool_1b	0
+	Model_SetupStored[20].Changeover_Tool_32	0
+	Model_SetupStored[20].Changeover_Tool_32_Mid	0
+	Model_SetupStored[20].PrototypePart	0
+	Model_SetupStored[21].Description	
+	Model_SetupStored[21].Number	
+	Model_SetupStored[21].Date	
+	Model_SetupStored[21].Time	
+	Model_SetupStored[21].AssemblyPN	
+	Model_SetupStored[21].AssemblyREV	
+	Model_SetupStored[21].IShaftTube_PN	
+	Model_SetupStored[21].IShaftTube_REV	
+	Model_SetupStored[21].LOT_DoubleDPlug_PN	
+	Model_SetupStored[21].LOT_RoundPlug_PN	
+	Model_SetupStored[21].LastModification	
+	Model_SetupStored[21].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[21].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[21].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[21].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[21].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[21].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[21].Changeover_Tool_1a	0
+	Model_SetupStored[21].Changeover_Tool_1b	0
+	Model_SetupStored[21].Changeover_Tool_32	0
+	Model_SetupStored[21].Changeover_Tool_32_Mid	0
+	Model_SetupStored[21].PrototypePart	0
+	Model_SetupStored[22].Description	
+	Model_SetupStored[22].Number	
+	Model_SetupStored[22].Date	
+	Model_SetupStored[22].Time	
+	Model_SetupStored[22].AssemblyPN	
+	Model_SetupStored[22].AssemblyREV	
+	Model_SetupStored[22].IShaftTube_PN	
+	Model_SetupStored[22].IShaftTube_REV	
+	Model_SetupStored[22].LOT_DoubleDPlug_PN	
+	Model_SetupStored[22].LOT_RoundPlug_PN	
+	Model_SetupStored[22].LastModification	
+	Model_SetupStored[22].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[22].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[22].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[22].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[22].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[22].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[22].Changeover_Tool_1a	0
+	Model_SetupStored[22].Changeover_Tool_1b	0
+	Model_SetupStored[22].Changeover_Tool_32	0
+	Model_SetupStored[22].Changeover_Tool_32_Mid	0
+	Model_SetupStored[22].PrototypePart	0
+	Model_SetupStored[23].Description	
+	Model_SetupStored[23].Number	
+	Model_SetupStored[23].Date	
+	Model_SetupStored[23].Time	
+	Model_SetupStored[23].AssemblyPN	
+	Model_SetupStored[23].AssemblyREV	
+	Model_SetupStored[23].IShaftTube_PN	
+	Model_SetupStored[23].IShaftTube_REV	
+	Model_SetupStored[23].LOT_DoubleDPlug_PN	
+	Model_SetupStored[23].LOT_RoundPlug_PN	
+	Model_SetupStored[23].LastModification	
+	Model_SetupStored[23].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[23].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[23].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[23].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[23].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[23].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[23].Changeover_Tool_1a	0
+	Model_SetupStored[23].Changeover_Tool_1b	0
+	Model_SetupStored[23].Changeover_Tool_32	0
+	Model_SetupStored[23].Changeover_Tool_32_Mid	0
+	Model_SetupStored[23].PrototypePart	0
+	Model_SetupStored[24].Description	
+	Model_SetupStored[24].Number	
+	Model_SetupStored[24].Date	
+	Model_SetupStored[24].Time	
+	Model_SetupStored[24].AssemblyPN	
+	Model_SetupStored[24].AssemblyREV	
+	Model_SetupStored[24].IShaftTube_PN	
+	Model_SetupStored[24].IShaftTube_REV	
+	Model_SetupStored[24].LOT_DoubleDPlug_PN	
+	Model_SetupStored[24].LOT_RoundPlug_PN	
+	Model_SetupStored[24].LastModification	
+	Model_SetupStored[24].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[24].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[24].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[24].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[24].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[24].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[24].Changeover_Tool_1a	0
+	Model_SetupStored[24].Changeover_Tool_1b	0
+	Model_SetupStored[24].Changeover_Tool_32	0
+	Model_SetupStored[24].Changeover_Tool_32_Mid	0
+	Model_SetupStored[24].PrototypePart	0
+	Model_SetupStored[25].Description	
+	Model_SetupStored[25].Number	
+	Model_SetupStored[25].Date	
+	Model_SetupStored[25].Time	
+	Model_SetupStored[25].AssemblyPN	
+	Model_SetupStored[25].AssemblyREV	
+	Model_SetupStored[25].IShaftTube_PN	
+	Model_SetupStored[25].IShaftTube_REV	
+	Model_SetupStored[25].LOT_DoubleDPlug_PN	
+	Model_SetupStored[25].LOT_RoundPlug_PN	
+	Model_SetupStored[25].LastModification	
+	Model_SetupStored[25].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[25].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[25].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[25].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[25].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[25].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[25].Changeover_Tool_1a	0
+	Model_SetupStored[25].Changeover_Tool_1b	0
+	Model_SetupStored[25].Changeover_Tool_32	0
+	Model_SetupStored[25].Changeover_Tool_32_Mid	0
+	Model_SetupStored[25].PrototypePart	0
+	Model_SetupStored[26].Description	
+	Model_SetupStored[26].Number	
+	Model_SetupStored[26].Date	
+	Model_SetupStored[26].Time	
+	Model_SetupStored[26].AssemblyPN	
+	Model_SetupStored[26].AssemblyREV	
+	Model_SetupStored[26].IShaftTube_PN	
+	Model_SetupStored[26].IShaftTube_REV	
+	Model_SetupStored[26].LOT_DoubleDPlug_PN	
+	Model_SetupStored[26].LOT_RoundPlug_PN	
+	Model_SetupStored[26].LastModification	
+	Model_SetupStored[26].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[26].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[26].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[26].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[26].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[26].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[26].Changeover_Tool_1a	0
+	Model_SetupStored[26].Changeover_Tool_1b	0
+	Model_SetupStored[26].Changeover_Tool_32	0
+	Model_SetupStored[26].Changeover_Tool_32_Mid	0
+	Model_SetupStored[26].PrototypePart	0
+	Model_SetupStored[27].Description	
+	Model_SetupStored[27].Number	
+	Model_SetupStored[27].Date	
+	Model_SetupStored[27].Time	
+	Model_SetupStored[27].AssemblyPN	
+	Model_SetupStored[27].AssemblyREV	
+	Model_SetupStored[27].IShaftTube_PN	
+	Model_SetupStored[27].IShaftTube_REV	
+	Model_SetupStored[27].LOT_DoubleDPlug_PN	
+	Model_SetupStored[27].LOT_RoundPlug_PN	
+	Model_SetupStored[27].LastModification	
+	Model_SetupStored[27].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[27].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[27].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[27].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[27].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[27].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[27].Changeover_Tool_1a	0
+	Model_SetupStored[27].Changeover_Tool_1b	0
+	Model_SetupStored[27].Changeover_Tool_32	0
+	Model_SetupStored[27].Changeover_Tool_32_Mid	0
+	Model_SetupStored[27].PrototypePart	0
+	Model_SetupStored[28].Description	
+	Model_SetupStored[28].Number	
+	Model_SetupStored[28].Date	
+	Model_SetupStored[28].Time	
+	Model_SetupStored[28].AssemblyPN	
+	Model_SetupStored[28].AssemblyREV	
+	Model_SetupStored[28].IShaftTube_PN	
+	Model_SetupStored[28].IShaftTube_REV	
+	Model_SetupStored[28].LOT_DoubleDPlug_PN	
+	Model_SetupStored[28].LOT_RoundPlug_PN	
+	Model_SetupStored[28].LastModification	
+	Model_SetupStored[28].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[28].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[28].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[28].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[28].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[28].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[28].Changeover_Tool_1a	0
+	Model_SetupStored[28].Changeover_Tool_1b	0
+	Model_SetupStored[28].Changeover_Tool_32	0
+	Model_SetupStored[28].Changeover_Tool_32_Mid	0
+	Model_SetupStored[28].PrototypePart	0
+	Model_SetupStored[29].Description	
+	Model_SetupStored[29].Number	
+	Model_SetupStored[29].Date	
+	Model_SetupStored[29].Time	
+	Model_SetupStored[29].AssemblyPN	
+	Model_SetupStored[29].AssemblyREV	
+	Model_SetupStored[29].IShaftTube_PN	
+	Model_SetupStored[29].IShaftTube_REV	
+	Model_SetupStored[29].LOT_DoubleDPlug_PN	
+	Model_SetupStored[29].LOT_RoundPlug_PN	
+	Model_SetupStored[29].LastModification	
+	Model_SetupStored[29].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[29].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[29].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[29].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[29].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[29].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[29].Changeover_Tool_1a	0
+	Model_SetupStored[29].Changeover_Tool_1b	0
+	Model_SetupStored[29].Changeover_Tool_32	0
+	Model_SetupStored[29].Changeover_Tool_32_Mid	0
+	Model_SetupStored[29].PrototypePart	0
+	Model_SetupStored[30].Description	
+	Model_SetupStored[30].Number	
+	Model_SetupStored[30].Date	
+	Model_SetupStored[30].Time	
+	Model_SetupStored[30].AssemblyPN	
+	Model_SetupStored[30].AssemblyREV	
+	Model_SetupStored[30].IShaftTube_PN	
+	Model_SetupStored[30].IShaftTube_REV	
+	Model_SetupStored[30].LOT_DoubleDPlug_PN	
+	Model_SetupStored[30].LOT_RoundPlug_PN	
+	Model_SetupStored[30].LastModification	
+	Model_SetupStored[30].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[30].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[30].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[30].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[30].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[30].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[30].Changeover_Tool_1a	0
+	Model_SetupStored[30].Changeover_Tool_1b	0
+	Model_SetupStored[30].Changeover_Tool_32	0
+	Model_SetupStored[30].Changeover_Tool_32_Mid	0
+	Model_SetupStored[30].PrototypePart	0
+	Model_SetupStored[31].Description	
+	Model_SetupStored[31].Number	
+	Model_SetupStored[31].Date	
+	Model_SetupStored[31].Time	
+	Model_SetupStored[31].AssemblyPN	
+	Model_SetupStored[31].AssemblyREV	
+	Model_SetupStored[31].IShaftTube_PN	
+	Model_SetupStored[31].IShaftTube_REV	
+	Model_SetupStored[31].LOT_DoubleDPlug_PN	
+	Model_SetupStored[31].LOT_RoundPlug_PN	
+	Model_SetupStored[31].LastModification	
+	Model_SetupStored[31].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[31].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[31].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[31].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[31].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[31].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[31].Changeover_Tool_1a	0
+	Model_SetupStored[31].Changeover_Tool_1b	0
+	Model_SetupStored[31].Changeover_Tool_32	0
+	Model_SetupStored[31].Changeover_Tool_32_Mid	0
+	Model_SetupStored[31].PrototypePart	0
+	Model_SetupStored[32].Description	
+	Model_SetupStored[32].Number	
+	Model_SetupStored[32].Date	
+	Model_SetupStored[32].Time	
+	Model_SetupStored[32].AssemblyPN	
+	Model_SetupStored[32].AssemblyREV	
+	Model_SetupStored[32].IShaftTube_PN	
+	Model_SetupStored[32].IShaftTube_REV	
+	Model_SetupStored[32].LOT_DoubleDPlug_PN	
+	Model_SetupStored[32].LOT_RoundPlug_PN	
+	Model_SetupStored[32].LastModification	
+	Model_SetupStored[32].KistlerUpperPress_ProgramNo	0
+	Model_SetupStored[32].KistlerLowerPress_ProgramNo	0
+	Model_SetupStored[32].KistlerUpperPress_ActiveEO2	0
+	Model_SetupStored[32].KistlerUpperPress_ActiveEO3	0
+	Model_SetupStored[32].KistlerLowerPress_ActiveEO2	0
+	Model_SetupStored[32].KistlerLowerPress_ActiveEO3	0
+	Model_SetupStored[32].Changeover_Tool_1a	0
+	Model_SetupStored[32].Changeover_Tool_1b	0
+	Model_SetupStored[32].Changeover_Tool_32	0
+	Model_SetupStored[32].Changeover_Tool_32_Mid	0
+	Model_SetupStored[32].PrototypePart	0

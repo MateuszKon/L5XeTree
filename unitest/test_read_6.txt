@@ -1,0 +1,193 @@
+Fault_ImmedStopTextPL[0]	
+Fault_ImmedStopTextPL[1]	001: Wykryto warunki E-STOP
+Fault_ImmedStopTextPL[2]	002: Niskie Ciœnienie Powietrza
+Fault_ImmedStopTextPL[3]	003: Przekroczony Czas Cyklu Sekwencji
+Fault_ImmedStopTextPL[4]	004: Przekroczony Czas Cyklu Powrotu Do Pozycji Pocz¹tkowej
+Fault_ImmedStopTextPL[5]	005: Kurtyna Œwietlna Przerwana W Trakcie Cyklu
+Fault_ImmedStopTextPL[6]	006: B³¹d Komunikacji Z Modu³ami Lokalnymi
+Fault_ImmedStopTextPL[7]	007: Otwarte Drzwi Serwisowe
+Fault_ImmedStopTextPL[8]	
+Fault_ImmedStopTextPL[9]	
+Fault_ImmedStopTextPL[10]	
+Fault_ImmedStopTextPL[11]	
+Fault_ImmedStopTextPL[12]	012: Naciœniêty E-Stop Na Panelu Maszyny
+Fault_ImmedStopTextPL[13]	
+Fault_ImmedStopTextPL[14]	
+Fault_ImmedStopTextPL[15]	
+Fault_ImmedStopTextPL[16]	
+Fault_ImmedStopTextPL[17]	017: B³¹d Komunikacji Z Switchem Stratix 5700
+Fault_ImmedStopTextPL[18]	
+Fault_ImmedStopTextPL[19]	
+Fault_ImmedStopTextPL[20]	020: B³¹d Komunikacji Z Modu³em BNI1
+Fault_ImmedStopTextPL[21]	021: Od³aczone Urz¹dzenie I/O Link z Portu 1 na Urz¹dzeniu BNI1
+Fault_ImmedStopTextPL[22]	022: Od³aczone Urz¹dzenie I/O Link z Portu 2 na Urz¹dzeniu BNI1
+Fault_ImmedStopTextPL[23]	023: Od³aczone Urz¹dzenie I/O Link z Portu 3 na Urz¹dzeniu BNI1
+Fault_ImmedStopTextPL[24]	024: Od³aczone Urz¹dzenie I/O Link z Portu 4 na Urz¹dzeniu BNI1
+Fault_ImmedStopTextPL[25]	
+Fault_ImmedStopTextPL[26]	
+Fault_ImmedStopTextPL[27]	
+Fault_ImmedStopTextPL[28]	
+Fault_ImmedStopTextPL[29]	
+Fault_ImmedStopTextPL[30]	030: B³¹d Przezbrojenia 1.b - Niepoprawne Pozycja Skanera Kodów 2D
+Fault_ImmedStopTextPL[31]	031: B³¹d Przezbrojenia 1.a - Niepoprawne Narzêdzie Górnej Prasy
+Fault_ImmedStopTextPL[32]	035: B³¹d Przezbrojenia 1.a - Niepoprawne Pozycja Skanera Kodów 2D
+Fault_ImmedStopTextPL[33]	033: B³¹d Przezbrojenia 1.a - Niepoprawna Pozycja Zespo³u Pozycjonuj¹cego Produkt
+Fault_ImmedStopTextPL[34]	031: B³¹d Przezbrojenia 1.a - Niepoprawne Narzêdzie Kowad³o
+Fault_ImmedStopTextPL[35]	032: B³¹d Przezbrojenia 1.b - Niepoprawne Narzêdzie Górnej Prasy
+Fault_ImmedStopTextPL[36]	036: B³¹d Przezbrojenia 3.2 Middle - Niepoprawne Pozycja Skanera Kodów 2D
+Fault_ImmedStopTextPL[37]	037: B³¹d Przezbrojenia 1.b - Niepoprawna Pozycja Zespo³u Pozycjonuj¹cego Produkt
+Fault_ImmedStopTextPL[38]	038: B³¹d Przezbrojenia 1.b - Niepoprawne Narzêdzie Kowad³o
+Fault_ImmedStopTextPL[39]	039: B³¹d Przezbrojenia 3.2 - Niepoprawne Narzêdzie Górnej Prasy
+Fault_ImmedStopTextPL[40]	040: B³¹d Przezbrojenia 3.2 - Niepoprawne Pozycja Skanera Kodów 2D
+Fault_ImmedStopTextPL[41]	041: B³¹d Przezbrojenia 3.2 - Niepoprawna Pozycja Zespo³u Pozycjonuj¹cego Produkt
+Fault_ImmedStopTextPL[42]	042: B³¹d Przezbrojenia 3.2 - Niepoprawne Narzêdzie Kowad³o
+Fault_ImmedStopTextPL[43]	043: B³¹d Przezbrojenia 3.2 Middle - Niepoprawne Narzêdzie Górnej Prasy
+Fault_ImmedStopTextPL[44]	044: B³¹d Przezbrojenia 3.2 Middle - Niepoprawne Pozycja Skanera Kodów 2D
+Fault_ImmedStopTextPL[45]	045: B³¹d Przezbrojenia 3.2 Middle - Niepoprawna Pozycja Zespo³u Pozycj. Produkt
+Fault_ImmedStopTextPL[46]	046: B³¹d Przezbrojenia 3.2 Middle  - Niepoprawne Narzêdzie Kowad³o
+Fault_ImmedStopTextPL[47]	047: B³¹d Komunikacji z Rêcznym Skanerem Cognex DM8050X
+Fault_ImmedStopTextPL[48]	048: Kod LOT Niezgodny z Wybranym Modelem
+Fault_ImmedStopTextPL[49]	
+Fault_ImmedStopTextPL[50]	050: B³¹d Komunikacji Ze Skanerem SR1000 I-Shaft
+Fault_ImmedStopTextPL[51]	051: Skaner SR1000 I-Shaft Przekroczy³ Max Liczbê Powtórzonych Skanów
+Fault_ImmedStopTextPL[52]	052: Pobrane Dane Ze Skanera SR1000 I-Shaft S¹ B³êdne - B³¹d D³ugoœci
+Fault_ImmedStopTextPL[53]	053: Pobrane Dane Ze Skanera SR1000 I-Shaft S¹ B³êdne - B³¹d Danych
+Fault_ImmedStopTextPL[54]	054: Pobrane Dane Ze Skanera SR1000 I-Shaft S¹ B³êdne - Part Number Eror
+Fault_ImmedStopTextPL[55]	
+Fault_ImmedStopTextPL[56]	
+Fault_ImmedStopTextPL[57]	
+Fault_ImmedStopTextPL[58]	
+Fault_ImmedStopTextPL[59]	
+Fault_ImmedStopTextPL[60]	060: Zeskanowany Kod LOT: Nie Jest Kodem JFK
+Fault_ImmedStopTextPL[61]	061: Zeskanowany Kod LOT: Niekompletne Dane
+Fault_ImmedStopTextPL[62]	062: Traceability JFK: Part Number NOK
+Fault_ImmedStopTextPL[63]	063: Traceability JFK: Nie Znaleziono Part Number
+Fault_ImmedStopTextPL[64]	064: Traceability JFK: Lookup Error
+Fault_ImmedStopTextPL[65]	
+Fault_ImmedStopTextPL[66]	066: Traceability JFK: B³¹d Hartbeat
+Fault_ImmedStopTextPL[67]	
+Fault_ImmedStopTextPL[68]	068: Traceability JFK: LOT Dobule D Plug NOK - Iloœæ NOK
+Fault_ImmedStopTextPL[69]	069: Traceability JFK: LOT Dobule D Plug NOK - Wygas³
+Fault_ImmedStopTextPL[70]	070: Traceability JFK: LOT Dobule D Plug NOK - Zablokowany
+Fault_ImmedStopTextPL[71]	071: Traceability JFK: LOT Dobule D Plug NOK - B³¹d Dekrementacji
+Fault_ImmedStopTextPL[72]	
+Fault_ImmedStopTextPL[73]	073: Traceability JFK: LOT Round Plug NOK - Iloœæ NOK
+Fault_ImmedStopTextPL[74]	074: Traceability JFK: LOT Round Plug NOK - Wygas³
+Fault_ImmedStopTextPL[75]	075: Traceability JFK: LOT Round Plug NOK - Zablokowany
+Fault_ImmedStopTextPL[76]	076: Traceability JFK: LOT Round Plug NOK - B³¹d Dekrementacji
+Fault_ImmedStopTextPL[77]	
+Fault_ImmedStopTextPL[78]	
+Fault_ImmedStopTextPL[79]	
+Fault_ImmedStopTextPL[80]	080: I-Shaft - Brak Odpowiedzi Na Polecenie Trace Lookup
+Fault_ImmedStopTextPL[81]	081: I-Shaft - Brak Odpowiedzi Na Polecenie Trace Part In Process
+Fault_ImmedStopTextPL[82]	082: I-Shaft - Brak Odpowiedzi Na Polecenie Trace Insert Results 
+Fault_ImmedStopTextPL[83]	083: I-Shaft Numerem Seryjnym Jest NOK Dla Rozpoczecia Cyklu
+Fault_ImmedStopTextPL[84]	084: Traceability: I-Shaft: B³¹d Funkcji Lookup
+Fault_ImmedStopTextPL[85]	085: Traceability: I-Shaft: B³¹d Funkcji InProcess
+Fault_ImmedStopTextPL[86]	086: Traceability: I-Shaft: B³¹d Funkcji Results
+Fault_ImmedStopTextPL[87]	
+Fault_ImmedStopTextPL[88]	088: Traceability: I-Shaf na Blackliscie
+Fault_ImmedStopTextPL[89]	089: Traceability: I-Shaft: B³¹d ID Poprzedniej Stacji
+Fault_ImmedStopTextPL[90]	090: Traceability: I-Shaft: PN Niezgodny z Wybranym Modelem
+Fault_ImmedStopTextPL[91]	
+Fault_ImmedStopTextPL[92]	
+Fault_ImmedStopTextPL[93]	
+Fault_ImmedStopTextPL[94]	
+Fault_ImmedStopTextPL[95]	
+Fault_ImmedStopTextPL[96]	
+Fault_ImmedStopTextPL[97]	097: Y1 Chwytak Rozladunku B³¹d Otwierania (I1B1.0
+Fault_ImmedStopTextPL[98]	098: Y1 Chwytak Rozladunku B³¹d Zamykania (I1B1.1
+Fault_ImmedStopTextPL[99]	099: Y1 Chwytak Rozladunku B³¹d Parzystoœci Czujników (I1B1.0 - I1B1.1
+Fault_ImmedStopTextPL[100]	100: Y2 Winda Rozladunku B³¹d Podnoszenia (I1B1.2
+Fault_ImmedStopTextPL[101]	101: Y2 Winda Rozladunku B³¹d Opuszczania (I1B1.3
+Fault_ImmedStopTextPL[102]	102: Y2 Winda Rozladunku B³¹d Parzystoœci Czujników (I1B1.2 - I1B1.3
+Fault_ImmedStopTextPL[103]	103: Y3 Slider Rozladunku B³¹d Wysuwania (I1B1.5
+Fault_ImmedStopTextPL[104]	104: Y3 Slider Rozladunku B³¹d Wsuwania (I1B1.4
+Fault_ImmedStopTextPL[105]	105: Y3 Slider Rozladunku B³¹d Parzystoœci Czujników (I1B1.5 - I1B1.4
+Fault_ImmedStopTextPL[106]	106: Y4 Unit Rozladunku B³¹d Otwierania (I1B1.7
+Fault_ImmedStopTextPL[107]	107: Y4 Unit Rozladunku B³¹d Zamykania (I1B1.6
+Fault_ImmedStopTextPL[108]	108: Y4 Unit Rozladunku B³¹d Parzystoœci Czujników (I1B1.7 - I1B1.6
+Fault_ImmedStopTextPL[109]	109: Y5 Chwytak Rury B³¹d Podnoszenia (I1B1.10
+Fault_ImmedStopTextPL[110]	110: Y5 Chwytak Rury B³¹d Opuszczania (I1B1.11
+Fault_ImmedStopTextPL[111]	111: Y5 Chwytak Rury B³¹d Parzystoœci Czujników (I1B1.10 - I1B1.11
+Fault_ImmedStopTextPL[112]	112: Y5 Chwytak Rury B³¹d Wysuwania (I1B1.10
+Fault_ImmedStopTextPL[113]	113: Y5 Chwytak Rury B³¹d Wsuwania (I1B1.11
+Fault_ImmedStopTextPL[114]	114: Y5 Chwytak Rury B³¹d Parzystoœci Czujników (I1B1.10 - I1B1.11
+Fault_ImmedStopTextPL[115]	115: Y6 Tuber Height Przezbrojenia B³¹d Wysuwania (I1B1.13
+Fault_ImmedStopTextPL[116]	116: Y6 Tuber Height Przezbrojenia B³¹d Wsuwania (I1B1.12
+Fault_ImmedStopTextPL[117]	117: Y6 Tuber Height Przezbrojenia B³¹d Parzystoœci Czujników (I1B1.13 - I1B1.12
+Fault_ImmedStopTextPL[118]	
+Fault_ImmedStopTextPL[119]	
+Fault_ImmedStopTextPL[120]	
+Fault_ImmedStopTextPL[121]	
+Fault_ImmedStopTextPL[122]	
+Fault_ImmedStopTextPL[123]	
+Fault_ImmedStopTextPL[124]	
+Fault_ImmedStopTextPL[125]	
+Fault_ImmedStopTextPL[126]	
+Fault_ImmedStopTextPL[127]	
+Fault_ImmedStopTextPL[128]	
+Fault_ImmedStopTextPL[129]	
+Fault_ImmedStopTextPL[130]	130: B³¹d komunikacji z MaXYmos gornej prasy 
+Fault_ImmedStopTextPL[131]	131: B³¹d Kistler MaXYmos Gornej Prasy: B£¥D KONFIGURACJI
+Fault_ImmedStopTextPL[132]	
+Fault_ImmedStopTextPL[133]	
+Fault_ImmedStopTextPL[134]	
+Fault_ImmedStopTextPL[135]	135: B³¹d komunikacji z MaXYmos dolnej prasy 
+Fault_ImmedStopTextPL[136]	136: B³¹d Kistler MaXYmos Dolnej Prasy: B£¥D KONFIGURACJI
+Fault_ImmedStopTextPL[137]	
+Fault_ImmedStopTextPL[138]	
+Fault_ImmedStopTextPL[139]	
+Fault_ImmedStopTextPL[140]	
+Fault_ImmedStopTextPL[141]	
+Fault_ImmedStopTextPL[142]	
+Fault_ImmedStopTextPL[143]	
+Fault_ImmedStopTextPL[144]	
+Fault_ImmedStopTextPL[145]	
+Fault_ImmedStopTextPL[146]	
+Fault_ImmedStopTextPL[147]	
+Fault_ImmedStopTextPL[148]	
+Fault_ImmedStopTextPL[149]	
+Fault_ImmedStopTextPL[150]	
+Fault_ImmedStopTextPL[151]	
+Fault_ImmedStopTextPL[152]	
+Fault_ImmedStopTextPL[153]	
+Fault_ImmedStopTextPL[154]	
+Fault_ImmedStopTextPL[155]	
+Fault_ImmedStopTextPL[156]	
+Fault_ImmedStopTextPL[157]	
+Fault_ImmedStopTextPL[158]	
+Fault_ImmedStopTextPL[159]	
+Fault_ImmedStopTextPL[160]	
+Fault_ImmedStopTextPL[161]	
+Fault_ImmedStopTextPL[162]	
+Fault_ImmedStopTextPL[163]	
+Fault_ImmedStopTextPL[164]	
+Fault_ImmedStopTextPL[165]	
+Fault_ImmedStopTextPL[166]	
+Fault_ImmedStopTextPL[167]	
+Fault_ImmedStopTextPL[168]	
+Fault_ImmedStopTextPL[169]	
+Fault_ImmedStopTextPL[170]	
+Fault_ImmedStopTextPL[171]	
+Fault_ImmedStopTextPL[172]	
+Fault_ImmedStopTextPL[173]	
+Fault_ImmedStopTextPL[174]	
+Fault_ImmedStopTextPL[175]	
+Fault_ImmedStopTextPL[176]	
+Fault_ImmedStopTextPL[177]	
+Fault_ImmedStopTextPL[178]	
+Fault_ImmedStopTextPL[179]	
+Fault_ImmedStopTextPL[180]	
+Fault_ImmedStopTextPL[181]	
+Fault_ImmedStopTextPL[182]	
+Fault_ImmedStopTextPL[183]	
+Fault_ImmedStopTextPL[184]	
+Fault_ImmedStopTextPL[185]	
+Fault_ImmedStopTextPL[186]	
+Fault_ImmedStopTextPL[187]	
+Fault_ImmedStopTextPL[188]	
+Fault_ImmedStopTextPL[189]	
+Fault_ImmedStopTextPL[190]	
+Fault_ImmedStopTextPL[191]	
+Fault_ImmedStopTextPL[192]	

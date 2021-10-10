@@ -19,7 +19,7 @@ def tmp_tree(name, data_type, value, children, concnatinate="", encoder=None):
             tmp_tree(name2, data_type2, value2, children2, concnatinate)
 
 
-with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
+with L5X.L5XeTree(xml_open, remove_blank_text=False) as tree_wrap:
     xml = """<Rung Use="Target" Number="3" Type="N">
                 <Comment>
                 </Comment>
@@ -219,34 +219,41 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     # tag.set_value(list_value, encoding)
     # # print(tag.get_value(encoding))
     # structure a_complexarr_str1
-    tag = root.tag("a_complexarr_str1")
-    # print(tag.get_value())
-    list_value = [[1, list([2, 3, 'qwe', 'rty']), [[5, 6, 'asd', 'das'],
-                                            [123, 321, 'asd', 'ąłę'],
-                                            ['0', '0', '', ''],
-                                            ['0', '0', '', ''],
-                                            ['0', '0', '', ''],
-                                            ['0', '0', '', ''],
-                                            ['222', 333, 'ąąą', 'ęęę'],
-                                            ['0', '0', '', ''],
-                                            ['0', '0', '', ''],
-                                            ['0', '0', '', '']],
-                   list([3, 5, 'aaa', 'sss']), list([0, 0, [0, 0, 'ddd', 'eee'], [0, 0, 'eee', ''], 'fff'])],
-                  [0, list([0, 0, '', '']), [['0', '0', '', ''],
-                                             ['0', '0', '', ''],
-                                             ['3', '2', 'aaa', 'bbb'],
-                                             ['0', '0', '', ''],
-                                             ['0', '0', '', ''],
-                                             ['0', '0', '', ''],
-                                             ['0', '0', '', ''],
-                                             ['0', '0', '', ''],
-                                             ['0', '0', '', ''],
-                                             ['0', '0', '', '']],
-                   list([0, 0, '', '\n\n']), list([0, 0, [0, 0, 'ęę', ''], [0, 0, '', ''], 'a'])]]
-    tag.set_value(list_value, encoding)
-    print(tag.get_value(encoding))
-    tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
-    print(tag.get_value(encoding))
+    # tag = root.tag("a_complexarr_str1")
+    # # print(tag.get_value())
+    # list_value = [[1, list([2, 3, 'qwe', 'rty']), [[5, 6, 'asd', 'das'],
+    #                                         [123, 321, 'asd', 'ąłę'],
+    #                                         ['0', '0', '', ''],
+    #                                         ['0', '0', '', ''],
+    #                                         ['0', '0', '', ''],
+    #                                         ['0', '0', '', ''],
+    #                                         ['222', 333, 'ąąą', 'ęęę'],
+    #                                         ['0', '0', '', ''],
+    #                                         ['0', '0', '', ''],
+    #                                         ['0', '0', '', '']],
+    #                list([3, 5, 'aaa', 'sss']), list([0, 0, [0, 0, 'ddd', 'eee'], [0, 0, 'eee', ''], 'fff'])],
+    #               [0, list([0, 0, '', '']), [['0', '0', '', ''],
+    #                                          ['0', '0', '', ''],
+    #                                          ['3', '2', 'aaa', 'bbb'],
+    #                                          ['0', '0', '', ''],
+    #                                          ['0', '0', '', ''],
+    #                                          ['0', '0', '', ''],
+    #                                          ['0', '0', '', ''],
+    #                                          ['0', '0', '', ''],
+    #                                          ['0', '0', '', ''],
+    #                                          ['0', '0', '', '']],
+    #                list([0, 0, '', '\n\n']), list([0, 0, [0, 0, 'ęę', ''], [0, 0, '', ''], 'a'])]]
+    # tag.set_value(list_value, encoding)
+    # # print(tag.get_value(encoding))
+    # tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
+    # # print(tag.get_value(encoding))
+    name = "ABC"
+    data_type =  "BOOL"
+    value = "1"
+    element = L5X.L5XTagDataValue(is_structure=False, Name=name, DataType=data_type, Value=value)
+
+    tag = root.tag("aaa")
+    tag.append(element)
 
 
 

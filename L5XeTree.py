@@ -30,6 +30,7 @@ class L5XData(ET.ElementBase):
     def get_tag_name(self):
         return self.getparent().get_tag_name()
 
+
 class L5XRoot(L5XData):
 
     def root(self):
@@ -703,6 +704,16 @@ class L5XTagArray(L5XComplexData):
 
 
 class L5XTagDataValue(L5XAbstractData):
+
+    def __init__(self, *children, is_structure=False, attrib=None, nsmap=None, **_extra):
+        if attrib is None:
+            attrib = _extra
+        super().__init__(*children, attrib=attrib, nsmap=nsmap, **_extra)
+        if is_structure:
+            self.tag = "DataValueMember"
+        else:
+            self.tag = "DataValue"
+
 
     def get_value(self, encoder=None, headers=False):
         data_type = self.attrib["DataType"]

@@ -483,6 +483,20 @@ class L5XTagData(L5XAbstractData):
 
 class L5XTagStructure(L5XComplexData):
 
+    def __init__(self, data_type, value):
+        # TODO: L5XTagStructure init
+        pass
+
+    @classmethod
+    def Structure(cls, data_type, value):
+        # TODO: L5XTagStructure Structure init
+        pass
+
+    @classmethod
+    def StructureMember(cls, data_type, value):
+        # TODO: L5XTagStructure StructureMember init
+        pass
+
     def _get_data_value_member_obj(self, name=None):
         data_value_member: L5XTagDataValue
         if name is not None:
@@ -713,7 +727,7 @@ class L5XTagDataValue(L5XAbstractData):
     @classmethod
     def DataValue(cls, data_type, value, radix=None):
         attrib = dict()
-        attrib["DataType"] =data_type
+        attrib["DataType"] = data_type
         radix = L5XTagDataValue.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
@@ -805,6 +819,18 @@ class L5XTagDataValue(L5XAbstractData):
 
 
 class L5XTagArrayElement(L5XAbstractData):
+
+    def __init__(self, data_type, index, value):
+        attrib = {"Index": index}
+        if data_type in L5XTag.SIMPLE_DATA_TYPE:
+            attrib["Value"] = str(value)
+            super().__init__(attrib=attrib)
+        elif data_type in self.root().get_data_types_all_names():
+            super().__init__(attrib=attrib)
+            self.append(L5XTagStructure.Structure(data_type, value))
+        else:
+            raise ValueError("Data type '{}' is not defined in L5X project".format(data_type))
+        self.tag = "Element"
 
     @property
     def get_index(self):

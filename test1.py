@@ -248,12 +248,15 @@ with L5X.L5XeTree(xml_open, remove_blank_text=False) as tree_wrap:
     # tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
     # # print(tag.get_value(encoding))
     name = "ABC"
-    data_type =  "BOOL"
+    data_type =  "DINT"
     value = "1"
-    element = L5X.L5XTagDataValue(is_structure=False, Name=name, DataType=data_type, Value=value)
+    # element = L5X.L5XTagDataValue(is_structure=False, Name=name, DataType=data_type, Value=value)
+    element = L5X.L5XTagDataValue.DataValue(data_type, value)
+    element2 = L5X.L5XTagDataValue.DataValueMember("mym", data_type, value)
 
     tag = root.tag("aaa")
     tag.append(element)
+    tag.append(element2)
 
 
 

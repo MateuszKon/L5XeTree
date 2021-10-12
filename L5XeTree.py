@@ -119,6 +119,7 @@ class L5XDataType(L5XData):
 class L5XTag(L5XData):
 
     SIMPLE_DATA_TYPE = {"BOOL", "LINT", "DINT", "INT", "SINT", "REAL"}
+    RADIX_DICT = {"SINT": "Decimal", "INT": "Decimal", "DINT": "Decimal", "LINT": "Decimal", "REAL": "Float"}
     # "STRING"
 
     def _init(self):
@@ -705,15 +706,39 @@ class L5XTagArray(L5XComplexData):
 
 class L5XTagDataValue(L5XAbstractData):
 
-    def __init__(self, *children, is_structure=False, attrib=None, nsmap=None, **_extra):
-        if attrib is None:
-            attrib = _extra
-        super().__init__(*children, attrib=attrib, nsmap=nsmap, **_extra)
-        if is_structure:
-            self.tag = "DataValueMember"
-        else:
-            self.tag = "DataValue"
+    def __init__(self, tag_name, attrib):
+        super().__init__(attrib=attrib)
+        self.tag = tag_name
 
+    @classmethod
+    def DataValue(cls, data_type, value, radix=None):
+        attrib = dict()
+        attrib["DataType"] =data_type
+        radix = L5XTagDataValue.set_radix(data_type, radix)
+        if radix is not None:
+            attrib["Radix"] = radix
+        attrib["Value"] = str(value)
+        tag_name = "DataValue"
+        return cls(tag_name, attrib)
+
+    @classmethod
+    def DataValueMember(cls, name, data_type, value, radix=None):
+        attrib = dict()
+        attrib["Name"] = name
+        attrib["DataType"] = data_type
+        radix = L5XTagDataValue.set_radix(data_type, radix)
+        if radix is not None:
+            attrib["Radix"] = radix
+        attrib["Value"] = str(value)
+        tag_name = "DataValueMember"
+        return cls(tag_name, attrib)
+
+    @staticmethod
+    def set_radix(data_type, radix):
+        if radix is None:
+            if data_type in L5XTag.RADIX_DICT:
+                radix = L5XTag.RADIX_DICT[data_type]
+        return radix
 
     def get_value(self, encoder=None, headers=False):
         data_type = self.attrib["DataType"]

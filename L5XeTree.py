@@ -126,6 +126,13 @@ class L5XTag(L5XData):
         super()._init()
         self.tag_structure = None
 
+    @staticmethod
+    def set_radix(data_type, radix):
+        if radix is None:
+            if data_type in L5XTag.RADIX_DICT:
+                radix = L5XTag.RADIX_DICT[data_type]
+        return radix
+
     def rename_tag(self, new_name):
         # zmiana zazwy taga
         old_name = self.name
@@ -483,7 +490,7 @@ class L5XTagData(L5XAbstractData):
 
 class L5XTagStructure(L5XComplexData):
 
-    def __init__(self, data_type, value):
+    def __init__(self, tag_name, data_type, value):
         # TODO: L5XTagStructure init
         pass
 
@@ -613,6 +620,57 @@ class L5XTagStructure(L5XComplexData):
 
 class L5XTagArray(L5XComplexData):
 
+    def __init__(self, tag_name, attrib, data_type, dimensions, value):
+        # TODO: Test L5XTagArray init (both factory methods)
+        super().__init__(attrib=attrib)
+        self.tag = tag_name
+        self.recurse_init_elements("", data_type, dimensions, iter(value))
+        pass
+
+    @classmethod
+    def Array(cls, data_type, dimensions, value, radix=None):
+        attrib = {"DataType": data_type, "Dimensions": cls.set_dimensions_attrib(dimensions)}
+        radix = L5XTag.set_radix(data_type, radix)
+        if radix is not None:
+            attrib["Radix"] = radix
+        tag_name = "Array"
+        return cls(tag_name, attrib, data_type, dimensions, value)
+        pass
+
+    @classmethod
+    def ArrayMember(cls, name, data_type, dimensions, value, radix=None):
+        attrib = {"Name": name, "DataType": data_type, "Dimensions": cls.set_dimensions_attrib(dimensions)}
+        radix = L5XTag.set_radix(data_type, radix)
+        if radix is not None:
+            attrib["Radix"] = radix
+        tag_name = "ArrayMember"
+        return cls(tag_name, attrib, data_type, dimensions, value)
+
+    @staticmethod
+    def set_dimensions_attrib(dimensions):
+        if isinstance(dimensions, list):
+            string = ",".join(str(x) for x in dimensions)
+        else:
+            string = str(dimensions)
+        return "[" + string + "]"
+
+    def recurse_init_elements(self, index_name_start, data_type, dimensions, value_iter):
+        if len(dimensions) > 1:
+            for i in range(0, dimensions[0]):
+                if index_name_start == "":
+                    index_name = str(i)
+                else:
+                    index_name = index_name_start + "," + str(i)
+                value = next(value_iter)
+                self.recurse_init_elements(index_name, dimensions[1:], iter(value))
+        else:
+            for i in range(0, dimensions[0]):
+                if index_name_start == "":
+                    index_name = "[" + str(i) + "]"
+                else:
+                    index_name = "[" + index_name_start + "," + str(i) + "]"
+                self.append(L5XTagArrayElement(data_type, index_name, next(value_iter)))
+
     def get_value(self, encoder=None, headers=False):
         values_list = []
         data_type = self.attrib["DataType"]
@@ -728,7 +786,7 @@ class L5XTagDataValue(L5XAbstractData):
     def DataValue(cls, data_type, value, radix=None):
         attrib = dict()
         attrib["DataType"] = data_type
-        radix = L5XTagDataValue.set_radix(data_type, radix)
+        radix = L5XTag.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
         attrib["Value"] = str(value)
@@ -740,19 +798,12 @@ class L5XTagDataValue(L5XAbstractData):
         attrib = dict()
         attrib["Name"] = name
         attrib["DataType"] = data_type
-        radix = L5XTagDataValue.set_radix(data_type, radix)
+        radix = L5XTag.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
         attrib["Value"] = str(value)
         tag_name = "DataValueMember"
         return cls(tag_name, attrib)
-
-    @staticmethod
-    def set_radix(data_type, radix):
-        if radix is None:
-            if data_type in L5XTag.RADIX_DICT:
-                radix = L5XTag.RADIX_DICT[data_type]
-        return radix
 
     def get_value(self, encoder=None, headers=False):
         data_type = self.attrib["DataType"]

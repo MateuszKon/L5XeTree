@@ -490,18 +490,29 @@ class L5XTagData(L5XAbstractData):
 
 class L5XTagStructure(L5XComplexData):
 
-    def __init__(self, tag_name, data_type, value):
+    def __init__(self, tag_name, attrib, data_type, value):
         # TODO: L5XTagStructure init
-        pass
+        # TODO: System structures (TIMER, COUNTER)
+        # TODO: Delete 'value' when generating tag, set default values instead
+        super().__init__(attrib=attrib)
+        self.tag = tag_name
+        self.recursive_init_structure(data_type, iter(value))
 
     @classmethod
     def Structure(cls, data_type, value):
-        # TODO: L5XTagStructure Structure init
-        pass
+        attrib = {"DataType": data_type}
+        tag_name = "Structure"
+        return cls(tag_name, attrib, data_type, value)
 
     @classmethod
-    def StructureMember(cls, data_type, value):
-        # TODO: L5XTagStructure StructureMember init
+    def StructureMember(cls, name, data_type, value):
+        attrib = {"Name": name, "DataType": data_type}
+        tag_name = "StructureMember"
+        return cls(tag_name, attrib, data_type, value)
+
+    def recursive_init_structure(self, data_type, value_iter):
+        # TODO: L5XTagStructure recursive_init_structure
+        data_type_obj = self.root.data_type(data_type)
         pass
 
     def _get_data_value_member_obj(self, name=None):
@@ -625,7 +636,6 @@ class L5XTagArray(L5XComplexData):
         super().__init__(attrib=attrib)
         self.tag = tag_name
         self.recurse_init_elements("", data_type, dimensions, iter(value))
-        pass
 
     @classmethod
     def Array(cls, data_type, dimensions, value, radix=None):
@@ -635,7 +645,6 @@ class L5XTagArray(L5XComplexData):
             attrib["Radix"] = radix
         tag_name = "Array"
         return cls(tag_name, attrib, data_type, dimensions, value)
-        pass
 
     @classmethod
     def ArrayMember(cls, name, data_type, dimensions, value, radix=None):

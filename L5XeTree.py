@@ -120,7 +120,7 @@ class L5XTag(L5XData):
 
     SIMPLE_DATA_TYPE = {"BOOL", "LINT", "DINT", "INT", "SINT", "REAL"}
     RADIX_DICT = {"SINT": "Decimal", "INT": "Decimal", "DINT": "Decimal", "LINT": "Decimal", "REAL": "Float"}
-    # "STRING"
+    DEFAULT_VALUE_DICT = {"SINT": 0, "INT": 0, "DINT": 0, "LINT": 0, "REAL": 0.0, "BOOL": 0}
 
     def _init(self):
         super()._init()
@@ -132,6 +132,11 @@ class L5XTag(L5XData):
             if data_type in L5XTag.RADIX_DICT:
                 radix = L5XTag.RADIX_DICT[data_type]
         return radix
+
+    @staticmethod
+    def default_value(data_type):
+        return L5XTag.DEFAULT_VALUE_DICT[data_type]
+
 
     def rename_tag(self, new_name):
         # zmiana zazwy taga
@@ -490,27 +495,26 @@ class L5XTagData(L5XAbstractData):
 
 class L5XTagStructure(L5XComplexData):
 
-    def __init__(self, tag_name, attrib, data_type, value):
+    def __init__(self, tag_name, attrib, data_type):
         # TODO: L5XTagStructure init
         # TODO: System structures (TIMER, COUNTER)
-        # TODO: Delete 'value' when generating tag, set default values instead
         super().__init__(attrib=attrib)
         self.tag = tag_name
-        self.recursive_init_structure(data_type, iter(value))
+        self.recursive_init_structure(data_type)
 
     @classmethod
-    def Structure(cls, data_type, value):
+    def Structure(cls, data_type):
         attrib = {"DataType": data_type}
         tag_name = "Structure"
-        return cls(tag_name, attrib, data_type, value)
+        return cls(tag_name, attrib, data_type)
 
     @classmethod
-    def StructureMember(cls, name, data_type, value):
+    def StructureMember(cls, name, data_type):
         attrib = {"Name": name, "DataType": data_type}
         tag_name = "StructureMember"
-        return cls(tag_name, attrib, data_type, value)
+        return cls(tag_name, attrib, data_type)
 
-    def recursive_init_structure(self, data_type, value_iter):
+    def recursive_init_structure(self, data_type):
         # TODO: L5XTagStructure recursive_init_structure
         data_type_obj = self.root.data_type(data_type)
         pass
@@ -631,29 +635,29 @@ class L5XTagStructure(L5XComplexData):
 
 class L5XTagArray(L5XComplexData):
 
-    def __init__(self, tag_name, attrib, data_type, dimensions, value):
+    def __init__(self, tag_name, attrib, data_type, dimensions):
         # TODO: Test L5XTagArray init (both factory methods)
         super().__init__(attrib=attrib)
         self.tag = tag_name
-        self.recurse_init_elements("", data_type, dimensions, iter(value))
+        self.recurse_init_elements("", data_type, dimensions)
 
     @classmethod
-    def Array(cls, data_type, dimensions, value, radix=None):
+    def Array(cls, data_type, dimensions, radix=None):
         attrib = {"DataType": data_type, "Dimensions": cls.set_dimensions_attrib(dimensions)}
         radix = L5XTag.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
         tag_name = "Array"
-        return cls(tag_name, attrib, data_type, dimensions, value)
+        return cls(tag_name, attrib, data_type, dimensions)
 
     @classmethod
-    def ArrayMember(cls, name, data_type, dimensions, value, radix=None):
+    def ArrayMember(cls, name, data_type, dimensions, radix=None):
         attrib = {"Name": name, "DataType": data_type, "Dimensions": cls.set_dimensions_attrib(dimensions)}
         radix = L5XTag.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
         tag_name = "ArrayMember"
-        return cls(tag_name, attrib, data_type, dimensions, value)
+        return cls(tag_name, attrib, data_type, dimensions)
 
     @staticmethod
     def set_dimensions_attrib(dimensions):
@@ -663,22 +667,21 @@ class L5XTagArray(L5XComplexData):
             string = str(dimensions)
         return "[" + string + "]"
 
-    def recurse_init_elements(self, index_name_start, data_type, dimensions, value_iter):
+    def recurse_init_elements(self, index_name_start, data_type, dimensions):
         if len(dimensions) > 1:
             for i in range(0, dimensions[0]):
                 if index_name_start == "":
                     index_name = str(i)
                 else:
                     index_name = index_name_start + "," + str(i)
-                value = next(value_iter)
-                self.recurse_init_elements(index_name, dimensions[1:], iter(value))
+                self.recurse_init_elements(index_name, dimensions[1:])
         else:
             for i in range(0, dimensions[0]):
                 if index_name_start == "":
                     index_name = "[" + str(i) + "]"
                 else:
                     index_name = "[" + index_name_start + "," + str(i) + "]"
-                self.append(L5XTagArrayElement(data_type, index_name, next(value_iter)))
+                self.append(L5XTagArrayElement(data_type, index_name))
 
     def get_value(self, encoder=None, headers=False):
         values_list = []
@@ -792,25 +795,25 @@ class L5XTagDataValue(L5XAbstractData):
         self.tag = tag_name
 
     @classmethod
-    def DataValue(cls, data_type, value, radix=None):
+    def DataValue(cls, data_type, radix=None):
         attrib = dict()
         attrib["DataType"] = data_type
         radix = L5XTag.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
-        attrib["Value"] = str(value)
+        attrib["Value"] = str(L5XTag.default_value(data_type))
         tag_name = "DataValue"
         return cls(tag_name, attrib)
 
     @classmethod
-    def DataValueMember(cls, name, data_type, value, radix=None):
+    def DataValueMember(cls, name, data_type, radix=None):
         attrib = dict()
         attrib["Name"] = name
         attrib["DataType"] = data_type
         radix = L5XTag.set_radix(data_type, radix)
         if radix is not None:
             attrib["Radix"] = radix
-        attrib["Value"] = str(value)
+        attrib["Value"] = str(L5XTag.default_value(data_type))
         tag_name = "DataValueMember"
         return cls(tag_name, attrib)
 

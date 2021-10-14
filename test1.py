@@ -251,13 +251,22 @@ with L5X.L5XeTree(xml_open, remove_blank_text=False) as tree_wrap:
     data_type =  "DINT"
     value = "1"
     # element = L5X.L5XTagDataValue(is_structure=False, Name=name, DataType=data_type, Value=value)
-    element = L5X.L5XTagDataValue.DataValue(data_type, value)
-    element2 = L5X.L5XTagDataValue.DataValueMember("mym", data_type, value)
+    element = L5X.L5XTagDataValue.DataValue(root, data_type, value)
+    element2 = L5X.L5XTagDataValue.DataValueMember(root, "mym", data_type, value)
 
     tag = root.tag("aaa")
     tag.append(element)
     tag.append(element2)
 
+
+    # NEW TAG
+    # tag = L5X.L5XTag(root, "hymy", "DINT")
+    # root.new_tag("hymy", "DINT")
+    root.new_tag("aaa_DINT1", "DINT", value=1)
+
+    root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2])
+
+    root.new_tag("aaa_string", "STRING", value="abc")
 
 
     tree_wrap.save_file(xml_write)

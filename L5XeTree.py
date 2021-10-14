@@ -1,6 +1,4 @@
-import re
 import lxml.etree as ET
-import numpy as np
 
 try:
     from .modules import *
@@ -75,6 +73,18 @@ class L5XRoot(L5XData):
             tag = self.program(scope).tag(tag_name)
         return tag
 
+    def new_tag(self, name, data_type, dimensions=None, description=None, comments=None, radix=None, tag_type="Base",
+                constant="false", external_access="None",
+                scope="Controller", value=None, encoder=None):
+        tag_obj = L5XTag(self, name, data_type, dimensions=dimensions, description=description, comments=comments,
+                         radix=radix, tag_type=tag_type, constant=constant, external_access=external_access)
+        if scope == "Controller":
+            self.find("Controller/Tags").append(tag_obj)
+        else:
+            self.program(scope).find("Tags").append(tag_obj)
+        if value is not None:
+            tag_obj.set_value(value, encoder=encoder)
+
     def get_data_types_all(self):
         data_types: list[L5XDataType] = self.findall("Controller/DataTypes/DataType")
         return data_types
@@ -97,8 +107,11 @@ class L5XRoot(L5XData):
         return [element.attrib["Name"] for element in self.get_data_types_nonstring()]
 
     def data_type(self, data_type_name):
-        if data_type_name == "STRING":
-            return L5XDataTypeString()
+        data_type_name = data_type_name.upper()
+        if data_type_name in L5XTag.SYSTEM_DATA_TYPES_DICT:
+            return L5XTag.SYSTEM_DATA_TYPES_DICT[data_type_name]()
+        elif data_type_name in L5XTag.SIMPLE_DATA_TYPE:
+            return L5XDataTypeSimple()
         else:
             data_type: L5XDataType = self.find("Controller/DataTypes/DataType[@Name='{}']".format(data_type_name))
             return data_type
@@ -121,6 +134,15 @@ class L5XDataType(L5XData):
     def get_data_type_members(self):
         return self.findall("Members/Member")
 
+
+class L5XDataTypeSimple(L5XDataType):
+
+    @property
+    def is_string_family(self):
+        return False
+
+    def get_data_type_members(self):
+        return None
 
 class L5XDataTypeString(L5XDataType):
 
@@ -202,18 +224,19 @@ class L5XTag(L5XData):
     SIMPLE_DATA_TYPE = {"BOOL", "LINT", "DINT", "INT", "SINT", "REAL"}
     RADIX_DICT = {"SINT": "Decimal", "INT": "Decimal", "DINT": "Decimal", "LINT": "Decimal", "REAL": "Float"}
     DEFAULT_VALUE_DICT = {"SINT": 0, "INT": 0, "DINT": 0, "LINT": 0, "REAL": 0.0, "BOOL": 0}
+    SYSTEM_DATA_TYPES_DICT = {"STRING": L5XDataTypeString, "TIMER": L5XDataTypeTimer, "COUNTER": L5XDataTypeCounter}
 
     def _init(self):
         super()._init()
         self.tag_structure = None
 
-    def __init__(self, root, name, data_type,  value=None, encoder=None, dimensions=None, description=None,
-                 comments=None, radix=None, tag_type="Base", constant="false", external_access="None"):
+    def __init__(self, root, name, data_type, dimensions=None, description=None, comments=None, radix=None,
+                 tag_type="Base", constant="false", external_access="None"):
         attrib = {"Name": name, "TagType": tag_type, "DataType": data_type}
         if dimensions is not None:
             if not isinstance(dimensions, list):
                 dimensions = list(dimensions)
-            str_dimensions = " ".join(dimensions)
+            str_dimensions = " ".join(str(x) for x in dimensions)
             attrib["Dimensions"] = str_dimensions
         radix = self.set_radix(data_type, radix, root)
         if radix is not None:
@@ -236,8 +259,6 @@ class L5XTag(L5XData):
                 comments_obj.append(L5XComment(comment_operand, comment_string))
             self.append(comments_obj)
         self.append(data)
-        if value is not None:
-            self.set_value(value, encoder=encoder)
 
     @staticmethod
     def set_radix(data_type, radix, root):
@@ -476,7 +497,7 @@ class L5XAbstractData(L5XData):
 
     @staticmethod
     def create_head_element(root, data_type, dimensions):
-        if int(dimensions) != 0:
+        if dimensions is not None:
             return L5XTagArray.Array(root, data_type, dimensions)
         elif data_type in L5XTag.SIMPLE_DATA_TYPE:
             return L5XTagDataValue.DataValue(root, data_type)
@@ -1050,7 +1071,7 @@ class L5XTagArrayElement(L5XAbstractData):
     def __init__(self, root, data_type, index):
         attrib = {"Index": index}
         if data_type in L5XTag.SIMPLE_DATA_TYPE:
-            attrib["Value"] = L5XTag.default_value(data_type)
+            attrib["Value"] = str(L5XTag.default_value(data_type))
             super().__init__(attrib=attrib)
         elif data_type in root.get_data_types_all_names():
             super().__init__(attrib=attrib)

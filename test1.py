@@ -33,6 +33,7 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     # print(tmp1.find(".//Text").ctext)
 
     root: L5X.L5XRoot = tree_wrap.tree.getroot()
+    encoding = "Windows-1250"  # jak są zakodowane stringi w projekcie (może być windows-1250, UTF-8 itd.)
 
     '''
     # RUNG
@@ -160,7 +161,7 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
 
 
     # # TAGS WRITING
-    encoding = "Windows-1250"  # jak są zakodowane stringi w projekcie (może być windows-1250, UTF-8 itd.)
+
     # # Write DINT AFTI_ONS
     # tag = root.tag("AFTI_ONS")
     # # print(tag.get_value())
@@ -248,41 +249,41 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     # tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
     # # print(tag.get_value(encoding))
 
-    # NEW TAG
-    tag = L5X.L5XTag(root, "hymy", "DINT")
-    tag = root.new_tag("hymy", "DINT")
-    tag.description = "asdasdasd"
-
-    tag = root.new_tag("aaa_DINT1", "DINT", value=1, description="aaa_DINT1")
-
-    tag = root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2], description="aaa", comments=[("[0]", "bbb")])
-    tag.set_element_comment("[1]", "poipoiiuyyut")
-
-    tag = root.new_tag("aaa_DINTarr2d", "DINT", dimensions=[2, 2], value=[[1, 2], [3, 4]], description="aaa", comments=[("[0]", "111"), ("[0,0]", "aaa"), ("[1,0]", "33"), ("[1]", "44"), ("[0,1].2", "ąłęmym")])
-    # L5X.ET.dump(tag)
-
-    root.new_tag("aaa_string", "STRING", value="abc")
-
-    root.new_tag("aaa_string_40", "u_str_40ch", value="abc")
-
-    # tag = root.tag("a_simple_nested_arr3d")
-    tag = root.new_tag("aaa_simple_nested", "a_simple_nested", dimensions=[2, 2, 2])
-    new_value = [
-        [
-            [[[1, 2], [[3, 4, 'asd', 'zxc'], [5, 6, 'fgh', 'vbn']]],
-             [[0, 0], [[0, 0, '', ''], [0, 0, '', '']]]],
-            [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
-             [[7, 8], [[9, 10, 'qwe', 'rty'], [11, 12, 'uio', 'p[]']]]]
-        ],
-        [
-            [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
-             [[0, 0], [[0, 0, '', ''], [0, 0, '', '']]]],
-            [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
-             [[13, 14], [[15, 16, 'aasd', 'ffgh'],
-                         [17, 18, 'gghj', 'hhjk']]]]
-        ]
-    ]
-    tag.set_value(new_value)
+    # # NEW TAG
+    # tag = L5X.L5XTag(root, "hymy", "DINT")
+    # tag = root.new_tag("hymy", "DINT")
+    # tag.description = "asdasdasd"
+    #
+    # tag = root.new_tag("aaa_DINT1", "DINT", value=1, description="aaa_DINT1")
+    #
+    # tag = root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2], description="aaa", comments=[("[0]", "bbb")])
+    # tag.set_element_comment("[1]", "poipoiiuyyut")
+    #
+    # tag = root.new_tag("aaa_DINTarr2d", "DINT", dimensions=[2, 2], value=[[1, 2], [3, 4]], description="aaa", comments=[("[0]", "111"), ("[0,0]", "aaa"), ("[1,0]", "33"), ("[1]", "44"), ("[0,1].2", "ąłęmym")])
+    # # L5X.ET.dump(tag)
+    #
+    # root.new_tag("aaa_string", "STRING", value="abc")
+    #
+    # root.new_tag("aaa_string_40", "u_str_40ch", value="abc")
+    #
+    # # tag = root.tag("a_simple_nested_arr3d")
+    # tag = root.new_tag("aaa_simple_nested", "a_simple_nested", dimensions=[2, 2, 2])
+    # new_value = [
+    #     [
+    #         [[[1, 2], [[3, 4, 'asd', 'zxc'], [5, 6, 'fgh', 'vbn']]],
+    #          [[0, 0], [[0, 0, '', ''], [0, 0, '', '']]]],
+    #         [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
+    #          [[7, 8], [[9, 10, 'qwe', 'rty'], [11, 12, 'uio', 'p[]']]]]
+    #     ],
+    #     [
+    #         [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
+    #          [[0, 0], [[0, 0, '', ''], [0, 0, '', '']]]],
+    #         [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
+    #          [[13, 14], [[15, 16, 'aasd', 'ffgh'],
+    #                      [17, 18, 'gghj', 'hhjk']]]]
+    #     ]
+    # ]
+    # tag.set_value(new_value)
 
 
     tree_wrap.save_file(xml_write)

@@ -252,11 +252,13 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     # NEW TAG
     tag = L5X.L5XTag(root, "hymy", "DINT")
     root.new_tag("hymy", "DINT")
-    root.new_tag("aaa_DINT1", "DINT", value=1)
+    tag = root.new_tag("aaa_DINT1", "DINT", value=1, description="aaa_DINT1")
 
-    root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2])
+    tag = root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2], description="aaa", comments=[("[0]", "bbb")])
 
-    root.new_tag("aaa_DINTarr2d", "DINT", dimensions=[2, 2], value=[[1, 2], [3, 4]])
+
+    tag = root.new_tag("aaa_DINTarr2d", "DINT", dimensions=[2, 2], value=[[1, 2], [3, 4]], description="aaa", comments=[("[0]", "111"), ("[0,0]", "aaa"), ("[1,0]", "33"), ("[1]", "44"), ("[0,1].2", "ąłęmym")])
+    # L5X.ET.dump(tag)
 
     root.new_tag("aaa_string", "STRING", value="abc")
 
@@ -280,6 +282,6 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
         ]
     ]
     tag.set_value(new_value)
-    L5X.ET.dump(tag)
+
 
     tree_wrap.save_file(xml_write)

@@ -364,12 +364,13 @@ class L5XTag(L5XData):
     @description.setter
     def description(self, value):
         if self._get_description_obj() is None:
-            self.insert(0, L5XDescription())
-        self._get_description_obj().ctext = value
+            self.insert(0, L5XDescription(value))
+        else:
+            self._get_description_obj().desc = value
 
     def get_element_comment(self, operand):
         if self._get_comment_obj(operand) is not None:
-            return self._get_comment_obj(operand).ctext
+            return self._get_comment_obj(operand).comment
         else:
             return ""
 
@@ -379,7 +380,7 @@ class L5XTag(L5XData):
             self.insert(insert_index, L5XComments())
         if self._get_comment_obj(operand) is None:
             self._get_comments_obj().append(L5XComment(attrib={"Operand": operand}))
-        self._get_comment_obj(operand).ctext = value
+        self._get_comment_obj(operand).comment = value
 
     @property
     def scope(self):
@@ -1247,6 +1248,14 @@ class L5XDescription(L5XData):
         self.tag = "Description"
         self.ctext = desc_string
 
+    @property
+    def desc(self):
+        return self.ctext
+
+    @property.setter
+    def desc(self, value):
+        self.ctext = value
+
 
 class L5XComments(L5XData):
 
@@ -1271,6 +1280,14 @@ class L5XComment(L5XData):
         super().__init__(attrib={"Operand": operand})
         self.tag = "Comment"
         self.ctext = comment_string
+
+    @property
+    def comment(self):
+        return self.ctext
+
+    @property.setter
+    def comment(self, value):
+        self.ctext = value
 
     @staticmethod
     def decor(string, decorator='=', lines=1, repeat=92):

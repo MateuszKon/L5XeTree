@@ -1,23 +1,7 @@
 import L5XeTree as L5X
-from modules import *
-from CSVfile import CSVfile as csv
 
 xml_open = 'unitest\\unitest_file_in.L5X'
 xml_write = 'tmp.L5X'
-
-
-def tmp_tree(name, data_type, value, children, concnatinate="", encoder=None):
-    sep = "\t"
-    if value is not None:
-        print(concnatinate + sep.join([name, data_type, str(value)]))
-    else:
-        print(concnatinate + sep.join([name, data_type]))
-    if children is not None:
-        concnatinate += sep
-        for child in children:
-            name2, data_type2, value2, children2 = child.build_child_structure(name, data_type, encoder=encoder, concatenate_path=True)
-            tmp_tree(name2, data_type2, value2, children2, concnatinate)
-
 
 with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     xml = """<Rung Use="Target" Number="3" Type="N">
@@ -284,6 +268,5 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     #     ]
     # ]
     # tag.set_value(new_value)
-
 
     tree_wrap.save_file(xml_write)

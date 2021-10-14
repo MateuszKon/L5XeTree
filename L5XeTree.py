@@ -379,7 +379,7 @@ class L5XTag(L5XData):
             insert_index = self.getchildren().index(self._get_data_obj())
             self.insert(insert_index, L5XComments())
         if self._get_comment_obj(operand) is None:
-            self._get_comments_obj().append(L5XComment(attrib={"Operand": operand}))
+            self._get_comments_obj().append(L5XComment(operand, ""))
         self._get_comment_obj(operand).comment = value
 
     @property
@@ -1252,7 +1252,7 @@ class L5XDescription(L5XData):
     def desc(self):
         return self.ctext
 
-    @property.setter
+    @desc.setter
     def desc(self, value):
         self.ctext = value
 
@@ -1285,7 +1285,7 @@ class L5XComment(L5XData):
     def comment(self):
         return self.ctext
 
-    @property.setter
+    @comment.setter
     def comment(self, value):
         self.ctext = value
 

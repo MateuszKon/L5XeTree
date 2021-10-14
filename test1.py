@@ -248,14 +248,15 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     # tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
     # # print(tag.get_value(encoding))
 
-    # TODO: adding comments and description to existing and new tag
     # NEW TAG
     tag = L5X.L5XTag(root, "hymy", "DINT")
-    root.new_tag("hymy", "DINT")
+    tag = root.new_tag("hymy", "DINT")
+    tag.description = "asdasdasd"
+
     tag = root.new_tag("aaa_DINT1", "DINT", value=1, description="aaa_DINT1")
 
     tag = root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2], description="aaa", comments=[("[0]", "bbb")])
-
+    tag.set_element_comment("[1]", "poipoiiuyyut")
 
     tag = root.new_tag("aaa_DINTarr2d", "DINT", dimensions=[2, 2], value=[[1, 2], [3, 4]], description="aaa", comments=[("[0]", "111"), ("[0,0]", "aaa"), ("[1,0]", "33"), ("[1]", "44"), ("[0,1].2", "ąłęmym")])
     # L5X.ET.dump(tag)

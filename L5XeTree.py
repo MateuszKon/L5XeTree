@@ -132,8 +132,50 @@ class L5XDataTypeString(L5XDataType):
     def max_string_length(self):
         return 82
 
+    def get_data_type_members(self):
+        return list([L5XMember("LEN", "DINT", "0"),
+                     L5XMember("DATA", "SINT", "82", radix="ASCII")])
+
+
+class L5XDataTypeTimer(L5XDataType):
+
+    @property
+    def is_string_family(self):
+        return False
+
+    def get_data_type_members(self):
+        return list([L5XMember("PRE", "DINT", "0"),
+                     L5XMember("ACC", "DINT", "0"),
+                     L5XMember("EN", "BOOL", "0"),
+                     L5XMember("TT", "BOOL", "0"),
+                     L5XMember("DN", "BOOL", "0")])
+
+
+class L5XDataTypeCounter(L5XDataType):
+
+    @property
+    def is_string_family(self):
+        return False
+
+    def get_data_type_members(self):
+        return list([L5XMember("PRE", "DINT", "0"),
+                     L5XMember("ACC", "DINT", "0"),
+                     L5XMember("CD", "BOOL", "0"),
+                     L5XMember("DN", "BOOL", "0"),
+                     L5XMember("OV", "BOOL", "0"),
+                     L5XMember("UN", "BOOL", "0")])
+
 
 class L5XMember(L5XData):
+
+    def __init__(self, name, data_type, dimension, radix=None, hidden="false", external_access="Read/Write"):
+        radix = L5XTag.set_radix(data_type, radix, None)
+        if radix is None:
+            radix = "NullType"
+        attrib = {"Name": name, "DataType": data_type, "Dimension": dimension, "Radix": radix, "Hidden": hidden,
+                  "ExternalAccess": external_access}
+        super().__init__(attrib=attrib)
+        self.tag = "Member"
 
     @property
     def name(self):
@@ -165,10 +207,8 @@ class L5XTag(L5XData):
         super()._init()
         self.tag_structure = None
 
-    def __init__(self, root, name, data_type,  value=None, dimensions=None, description=None, comments=None,
-                 radix=None, tag_type="Base", constant="false", external_access="None"):
-        # TODO: Description and comments of new Tag
-        # TODO: Upewnić się czy gdzieś nie jest używany w initach self.root zamiast samego root
+    def __init__(self, root, name, data_type,  value=None, encoder=None, dimensions=None, description=None,
+                 comments=None, radix=None, tag_type="Base", constant="false", external_access="None"):
         attrib = {"Name": name, "TagType": tag_type, "DataType": data_type}
         if dimensions is not None:
             if not isinstance(dimensions, list):
@@ -183,19 +223,28 @@ class L5XTag(L5XData):
         super().__init__(attrib=attrib)
         self.tag = "Tag"
         data_type_obj = root.data_type(data_type)
-        # stworzyć L5XTagData (jeśli to string to przez factory a nie przez init)
-        # stworzyć taga (L5XAbstrtactData)
-        # tak samo Description i Comments
-        # podłączyć wszystko do self
-
-
+        if data_type_obj.is_string_family:
+            data = L5XTagData.DataString()
+        else:
+            data = L5XTagData("Decorated")
+            data.append(L5XAbstractData.create_head_element(root, data_type, dimensions))
+        if description is not None:
+            self.append(L5XDescription(description))
+        if comments is not None:
+            comments_obj = L5XComments()
+            for comment_operand, comment_string in comments:
+                comments_obj.append(L5XComment(comment_operand, comment_string))
+            self.append(comments_obj)
+        self.append(data)
+        if value is not None:
+            self.set_value(value, encoder=encoder)
 
     @staticmethod
     def set_radix(data_type, radix, root):
         if radix is None:
             if data_type in L5XTag.RADIX_DICT:
                 radix = L5XTag.RADIX_DICT[data_type]
-            else:
+            elif root is not None:
                 data_type_obj = root.data_type(data_type)
                 if data_type_obj is not None:
                     if data_type_obj.is_string_family:
@@ -425,6 +474,28 @@ class L5XTag(L5XData):
 
 class L5XAbstractData(L5XData):
 
+    @staticmethod
+    def create_head_element(root, data_type, dimensions):
+        if int(dimensions) != 0:
+            return L5XTagArray.Array(root, data_type, dimensions)
+        elif data_type in L5XTag.SIMPLE_DATA_TYPE:
+            return L5XTagDataValue.DataValue(root, data_type)
+        elif root.data_type(data_type) is not None:
+            return L5XTagStructure.Structure(root, data_type)
+        else:
+            raise ValueError("There is not data type '{}' in project".format(data_type))
+
+    @staticmethod
+    def create_sub_element(root, name, data_type, dimensions):
+        if int(dimensions) != 0:
+            return L5XTagArray.ArrayMember(root, name, data_type, dimensions)
+        elif data_type in L5XTag.SIMPLE_DATA_TYPE:
+            return L5XTagDataValue.DataValueMember(root, name, data_type)
+        elif root.data_type(data_type) is not None:
+            return L5XTagStructure.StructureMember(root, name, data_type)
+        else:
+            raise ValueError("There is not data type '{}' in project".format(data_type))
+
     def get_value(self, encoder=None, headers=False):
         pass
 
@@ -529,9 +600,7 @@ class L5XTagData(L5XAbstractData):
 
     @classmethod
     def DataString(cls):
-        data_format = "String"
-        length = "0"
-        self = L5XTagData(data_format, Length=length)
+        self = L5XTagData("String", Length="0")
         self.ctext = ""
         return self
 
@@ -577,8 +646,6 @@ class L5XTagData(L5XAbstractData):
 class L5XTagStructure(L5XComplexData):
 
     def __init__(self, root, tag_name, attrib, data_type):
-        # TODO: System structures (TIMER, COUNTER)
-        # TODO: If tag is STRING or from String family it's value is in Data '<Data Format="String" Length="1"><![CDATA['$01']]></Data>' format
         super().__init__(attrib=attrib)
         self.tag = tag_name
         self.recursive_init_structure(root, data_type)
@@ -598,24 +665,13 @@ class L5XTagStructure(L5XComplexData):
     def recursive_init_structure(self, root, data_type):
         data_type_obj = root.data_type(data_type)
         if data_type_obj.is_string_family:
-            self.append(L5XTagDataValue.DataValueMember("LEN", "DINT"))
-            self.append(L5XTagDataValue.DataValueMember("DATA", data_type))
+            self.append(L5XTagDataValue.DataValueMember(root, "LEN", "DINT"))
+            self.append(L5XTagDataValue.DataValueMember(root, "DATA", data_type))
         else:
             for member in data_type_obj.get_data_type_members():
                 member_name, member_data_type, member_dimension = member.get_member_data()
-                if int(member_dimension) != 0:
-                    self.append(L5XTagArray.ArrayMember(root, member_name, member_data_type, member_dimension))
-                elif member_data_type in L5XTag.SIMPLE_DATA_TYPE:
-                    self.append(L5XTagDataValue.DataValueMember(root, member_name, member_data_type))
-                elif root.data_type(member_data_type) is not None:
-                    self.append(L5XTagStructure.StructureMember(root, member_name, member_data_type))
-                else:
-                    raise ValueError("There is not data type '{}' in project".format(member_data_type))
-
-
-
-
-        # return self.name, self.data_type, self.dimension
+                new_element = L5XAbstractData.create_sub_element(root, member_name, member_data_type, member_dimension)
+                self.append(new_element)
 
     def _get_data_value_member_obj(self, name=None):
         data_value_member: L5XTagDataValue
@@ -627,7 +683,7 @@ class L5XTagStructure(L5XComplexData):
 
     def get_value(self, encoder=None, headers=False):
         data_type = self.attrib["DataType"]
-        if data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        if data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             count = int(self._get_data_value_member_obj("LEN").get_value(encoder, headers))
             if count:
                 string: str = self._get_data_value_member_obj("DATA").get_value(encoder, headers)
@@ -741,7 +797,7 @@ class L5XTagArray(L5XComplexData):
     @classmethod
     def Array(cls, root, data_type, dimensions, radix=None):
         attrib = {"DataType": data_type, "Dimensions": cls.set_dimensions_attrib(dimensions)}
-        radix = L5XTag.set_radix(data_type, radix)
+        radix = L5XTag.set_radix(data_type, radix, root)
         if radix is not None:
             attrib["Radix"] = radix
         tag_name = "Array"
@@ -750,7 +806,7 @@ class L5XTagArray(L5XComplexData):
     @classmethod
     def ArrayMember(cls, root, name, data_type, dimensions, radix=None):
         attrib = {"Name": name, "DataType": data_type, "Dimensions": cls.set_dimensions_attrib(dimensions)}
-        radix = L5XTag.set_radix(data_type, radix)
+        radix = L5XTag.set_radix(data_type, radix, root)
         if radix is not None:
             attrib["Radix"] = radix
         tag_name = "ArrayMember"
@@ -771,7 +827,7 @@ class L5XTagArray(L5XComplexData):
                     index_name = str(i)
                 else:
                     index_name = index_name_start + "," + str(i)
-                self.recurse_init_elements(root, index_name, dimensions[1:])
+                self.recurse_init_elements(root, index_name, data_type, dimensions[1:])
         else:
             for i in range(0, dimensions[0]):
                 if index_name_start == "":
@@ -909,7 +965,7 @@ class L5XTagDataValue(L5XAbstractData):
         attrib = dict()
         attrib["Name"] = name
         attrib["DataType"] = data_type
-        radix = L5XTag.set_radix(data_type, radix)
+        radix = L5XTag.set_radix(data_type, radix, root)
         if radix is not None:
             attrib["Radix"] = radix
         data_type_obj = root.data_type(data_type)
@@ -933,7 +989,7 @@ class L5XTagDataValue(L5XAbstractData):
                 return float(value)
             else:
                 return int(value)
-        elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             return self._get_string_value(encoder)
         else:
             raise TypeError('Unexpected data type of DataValue: "' + data_type + '"')
@@ -1144,11 +1200,20 @@ class L5XDescription(L5XData):
         super()._init()
         self.tag = "Description"
 
+    def __init__(self, desc_string):
+        super().__init__()
+        self.tag = "Description"
+        self.ctext = desc_string
+
 
 class L5XComments(L5XData):
 
     def _init(self):
         super()._init()
+        self.tag = "Comments"
+
+    def __init__(self):
+        super().__init__()
         self.tag = "Comments"
 
 
@@ -1159,6 +1224,11 @@ class L5XComment(L5XData):
         self.tag = "Comment"
         if attrib is not None:
             self.attrib = attrib
+
+    def __init__(self, operand, comment_string):
+        super().__init__(attrib={"Operand": operand})
+        self.tag = "Comment"
+        self.ctext = comment_string
 
     @staticmethod
     def decor(string, decorator='=', lines=1, repeat=92):

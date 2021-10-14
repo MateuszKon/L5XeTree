@@ -19,7 +19,7 @@ def tmp_tree(name, data_type, value, children, concnatinate="", encoder=None):
             tmp_tree(name2, data_type2, value2, children2, concnatinate)
 
 
-with L5X.L5XeTree(xml_open, remove_blank_text=False) as tree_wrap:
+with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     xml = """<Rung Use="Target" Number="3" Type="N">
                 <Comment>
                 </Comment>
@@ -247,26 +247,40 @@ with L5X.L5XeTree(xml_open, remove_blank_text=False) as tree_wrap:
     # # print(tag.get_value(encoding))
     # tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
     # # print(tag.get_value(encoding))
-    name = "ABC"
-    data_type =  "DINT"
-    value = "1"
-    # element = L5X.L5XTagDataValue(is_structure=False, Name=name, DataType=data_type, Value=value)
-    element = L5X.L5XTagDataValue.DataValue(root, data_type, value)
-    element2 = L5X.L5XTagDataValue.DataValueMember(root, "mym", data_type, value)
 
-    tag = root.tag("aaa")
-    tag.append(element)
-    tag.append(element2)
-
-
+    # TODO: test new tags generation
+    # TODO: adding comments and description to existing and new tag
     # NEW TAG
-    # tag = L5X.L5XTag(root, "hymy", "DINT")
-    # root.new_tag("hymy", "DINT")
+    tag = L5X.L5XTag(root, "hymy", "DINT")
+    root.new_tag("hymy", "DINT")
     root.new_tag("aaa_DINT1", "DINT", value=1)
 
     root.new_tag("aaa_DINTarr1", "DINT", dimensions=[2], value=[1, 2])
 
+    root.new_tag("aaa_DINTarr2d", "DINT", dimensions=[2, 2], value=[[1, 2], [3, 4]])
+
     root.new_tag("aaa_string", "STRING", value="abc")
 
+    root.new_tag("aaa_string_40", "u_str_40ch", value="abc")
+
+    # tag = root.tag("a_simple_nested_arr3d")
+    tag = root.new_tag("aaa_simple_nested", "a_simple_nested", dimensions=[2, 2, 2])
+    new_value = [
+        [
+            [[[1, 2], [[3, 4, 'asd', 'zxc'], [5, 6, 'fgh', 'vbn']]],
+             [[0, 0], [[0, 0, '', ''], [0, 0, '', '']]]],
+            [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
+             [[7, 8], [[9, 10, 'qwe', 'rty'], [11, 12, 'uio', 'p[]']]]]
+        ],
+        [
+            [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
+             [[0, 0], [[0, 0, '', ''], [0, 0, '', '']]]],
+            [[[0, 0], [[0, 0, '', ''], [0, 0, '', '']]],
+             [[13, 14], [[15, 16, 'aasd', 'ffgh'],
+                         [17, 18, 'gghj', 'hhjk']]]]
+        ]
+    ]
+    tag.set_value(new_value)
+    L5X.ET.dump(tag)
 
     tree_wrap.save_file(xml_write)

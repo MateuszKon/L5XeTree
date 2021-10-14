@@ -31,6 +31,7 @@ class L5XData(ET.ElementBase):
 
 class L5XRoot(L5XData):
 
+    @property
     def root(self):
         return self
 
@@ -84,6 +85,7 @@ class L5XRoot(L5XData):
             self.program(scope).find("Tags").append(tag_obj)
         if value is not None:
             tag_obj.set_value(value, encoder=encoder)
+        return tag_obj
 
     def get_data_types_all(self):
         data_types: list[L5XDataType] = self.findall("Controller/DataTypes/DataType")
@@ -107,10 +109,9 @@ class L5XRoot(L5XData):
         return [element.attrib["Name"] for element in self.get_data_types_nonstring()]
 
     def data_type(self, data_type_name):
-        data_type_name = data_type_name.upper()
-        if data_type_name in L5XTag.SYSTEM_DATA_TYPES_DICT:
+        if data_type_name.upper() in L5XTag.SYSTEM_DATA_TYPES_DICT:
             return L5XTag.SYSTEM_DATA_TYPES_DICT[data_type_name]()
-        elif data_type_name in L5XTag.SIMPLE_DATA_TYPE:
+        elif data_type_name.upper() in L5XTag.SIMPLE_DATA_TYPE:
             return L5XDataTypeSimple()
         else:
             data_type: L5XDataType = self.find("Controller/DataTypes/DataType[@Name='{}']".format(data_type_name))
@@ -122,6 +123,10 @@ class L5XDataType(L5XData):
     @property
     def is_string_family(self):
         return self.attrib["Family"] == "StringFamily"
+
+    @property
+    def type(self):
+        return "NORMAL"
 
     @property
     def max_string_length(self):
@@ -141,6 +146,10 @@ class L5XDataTypeSimple(L5XDataType):
     def is_string_family(self):
         return False
 
+    @property
+    def type(self):
+        return "SIMPLE"
+
     def get_data_type_members(self):
         return None
 
@@ -149,6 +158,10 @@ class L5XDataTypeString(L5XDataType):
     @property
     def is_string_family(self):
         return True
+
+    @property
+    def type(self):
+        return "STRING"
 
     @property
     def max_string_length(self):
@@ -165,6 +178,10 @@ class L5XDataTypeTimer(L5XDataType):
     def is_string_family(self):
         return False
 
+    @property
+    def type(self):
+        return "SYSTEM"
+
     def get_data_type_members(self):
         return list([L5XMember("PRE", "DINT", "0"),
                      L5XMember("ACC", "DINT", "0"),
@@ -178,6 +195,10 @@ class L5XDataTypeCounter(L5XDataType):
     @property
     def is_string_family(self):
         return False
+
+    @property
+    def type(self):
+        return "SYSTEM"
 
     def get_data_type_members(self):
         return list([L5XMember("PRE", "DINT", "0"),
@@ -230,6 +251,7 @@ class L5XTag(L5XData):
         super()._init()
         self.tag_structure = None
 
+    # TODO: Probably somewhere Radix is wrong, while importing to Studio: 'Error: Line 45047: Invalid display style.'
     def __init__(self, root, name, data_type, dimensions=None, description=None, comments=None, radix=None,
                  tag_type="Base", constant="false", external_access="None"):
         attrib = {"Name": name, "TagType": tag_type, "DataType": data_type}
@@ -242,7 +264,7 @@ class L5XTag(L5XData):
         if radix is not None:
             attrib["Radix"] = radix
         attrib["Constant"] = constant
-        attrib["ExtrernalAccess"] = external_access
+        attrib["ExternalAccess"] = external_access
         super().__init__(attrib=attrib)
         self.tag = "Tag"
         data_type_obj = root.data_type(data_type)
@@ -582,7 +604,7 @@ class L5XAbstractData(L5XData):
             data_type = self.attrib["DataType"]
         elif "Format" in self.attrib:
             data_format = self.attrib["Format"]
-        if data_type == "STRING" or data_type in self.root().get_data_types_string_names() or data_format == "String":
+        if data_type == "STRING" or data_type in self.root.get_data_types_string_names() or data_format == "String":
             string = self.get_value(encoder)
             if encoder is not None:
                 return len(string.encode(encoder))
@@ -644,8 +666,8 @@ class L5XTagData(L5XAbstractData):
         if self.attrib["Format"] == "String":
             if data_type == "STRING":
                 max_string_length = 82
-            elif data_type in self.root().get_data_types_string_names():
-                max_string_length = self.root().data_type(data_type).max_string_length
+            elif data_type in self.root.get_data_types_string_names():
+                max_string_length = self.root.data_type(data_type).max_string_length
             else:
                 raise TypeError('Unexpected data type, trying save string to data type: "' + data_type + '"')
             self._set_string_value(string, max_string_length, encoder)
@@ -720,7 +742,7 @@ class L5XTagStructure(L5XComplexData):
 
     def set_value(self, value, encoder=None):
         data_type: str = self.attrib["DataType"]
-        if data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        if data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             self._get_data_value_member_obj("DATA").set_value(value, encoder)
             count = self._get_data_value_member_obj("DATA")._get_string_len(encoder)
             self._get_data_value_member_obj("LEN").set_value(count)
@@ -751,7 +773,7 @@ class L5XTagStructure(L5XComplexData):
         if not concatenate_path:
             leading_name = ""
         data_type: str = self.attrib["DataType"]
-        if data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        if data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             if concatenate_path:
                 return leading_name + "." + self.attrib["Name"]
             else:
@@ -778,7 +800,7 @@ class L5XTagStructure(L5XComplexData):
 
     def additional_tag_structure(self, encoder=None):
         data_type = self.data_type
-        if data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        if data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             count = int(self._get_data_value_member_obj("LEN").get_value(encoder))
             if count:
                 string: str = self._get_data_value_member_obj("DATA").get_value(encoder)
@@ -796,7 +818,7 @@ class L5XTagStructure(L5XComplexData):
         data_type = self.data_type
         value = None
         children = None
-        if data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        if data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             count = int(self._get_data_value_member_obj("LEN").get_value(encoder))
             if count:
                 value = self._get_data_value_member_obj("DATA").get_value(encoder)
@@ -839,18 +861,18 @@ class L5XTagArray(L5XComplexData):
             string = ",".join(str(x) for x in dimensions)
         else:
             string = str(dimensions)
-        return "[" + string + "]"
+        return string
 
     def recurse_init_elements(self, root, index_name_start, data_type, dimensions):
         if len(dimensions) > 1:
-            for i in range(0, dimensions[0]):
+            for i in range(0, int(dimensions[0])):
                 if index_name_start == "":
                     index_name = str(i)
                 else:
                     index_name = index_name_start + "," + str(i)
                 self.recurse_init_elements(root, index_name, data_type, dimensions[1:])
         else:
-            for i in range(0, dimensions[0]):
+            for i in range(0, int(dimensions[0])):
                 if index_name_start == "":
                     index_name = "[" + str(i) + "]"
                 else:
@@ -993,11 +1015,10 @@ class L5XTagDataValue(L5XAbstractData):
         # If it's not string, i will be None
         string_value = None
         # Check if object is string
-        if data_type_obj is not None:
-            if data_type_obj.is_string_family:
-                string_value = ""
+        if data_type_obj.is_string_family:
+            string_value = ""
         # if not set simple default value
-        else:
+        elif data_type_obj.type == "SIMPLE":
             attrib["Value"] = str(L5XTag.default_value(data_type))
         tag_name = "DataValueMember"
         return cls(root, tag_name, attrib, string_value)
@@ -1019,11 +1040,11 @@ class L5XTagDataValue(L5XAbstractData):
         data_type = self.attrib["DataType"]
         if data_type in L5XTag.SIMPLE_DATA_TYPE:
             self.attrib["Value"] = str(value)
-        elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             if data_type == "STRING":
                 max_string_length = 82
             else:
-                max_string_length = self.root().data_type(data_type).max_string_length
+                max_string_length = self.root.data_type(data_type).max_string_length
             self._set_string_value(value, max_string_length, encoder)
         else:
             raise TypeError("Unexpected data type of DataValue: " + data_type)
@@ -1043,7 +1064,7 @@ class L5XTagDataValue(L5XAbstractData):
                 return float(value), None
             else:
                 return int(value), None
-        elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             return self._get_string_value(encoder), None
         else:
             raise TypeError('Unexpected data type of DataValue: "' + data_type + '"')
@@ -1059,7 +1080,7 @@ class L5XTagDataValue(L5XAbstractData):
                 value = float(value_str)
             else:
                 value = int(value_str)
-        elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             value = self._get_string_value(encoder)
         else:
             raise TypeError('Unexpected data type of DataValue: "' + data_type + '"')
@@ -1090,7 +1111,7 @@ class L5XTagArrayElement(L5XAbstractData):
                 return float(self.attrib["Value"])
             else:
                 return int(self.attrib["Value"])
-        # elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        # elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
         else:
             return self.find("./Structure").get_value(encoder, headers)
         # else:
@@ -1099,7 +1120,7 @@ class L5XTagArrayElement(L5XAbstractData):
     def set_value_datatype(self, value, data_type, encoder=None):
         if data_type in L5XTag.SIMPLE_DATA_TYPE:
             self.attrib["Value"] = str(value)
-        elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             self.find("./Structure").set_value(value, encoder)
         else:
             # raise TypeError("Unexpected data type of TagArrayElement: " + data_type)
@@ -1116,7 +1137,7 @@ class L5XTagArrayElement(L5XAbstractData):
     def get_names_datatype(self, data_type, leading_name, concatenate_path=True, headers=False):
         element_name = leading_name + self.attrib["Index"]
         if self.child() is not None and data_type != "STRING" and \
-                not (data_type in self.root().get_data_types_string_names()):
+                not (data_type in self.root.get_data_types_string_names()):
             element: L5XAbstractData
             if len(self.findall("./*")) > 1:
                 array_names = []
@@ -1139,7 +1160,7 @@ class L5XTagArrayElement(L5XAbstractData):
                 value = float(self.attrib["Value"])
             else:
                 value =  int(self.attrib["Value"])
-        elif data_type == "STRING" or data_type in self.root().get_data_types_string_names():
+        elif data_type == "STRING" or data_type in self.root.get_data_types_string_names():
             value = self.find("./Structure").get_value(encoder)
         else:
             children = self.findall("./Structure/*")

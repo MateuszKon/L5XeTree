@@ -248,7 +248,6 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     # tag.set_value_element("3333", "[0].structure10[1].str1", encoding)
     # # print(tag.get_value(encoding))
 
-    # TODO: test new tags generation
     # TODO: adding comments and description to existing and new tag
     # NEW TAG
     tag = L5X.L5XTag(root, "hymy", "DINT")

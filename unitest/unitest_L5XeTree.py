@@ -1,8 +1,7 @@
 import unittest
 import L5XeTree as L5X
-from CSVfile import CSVfile as csv
+from modules.CSVfile import CSVfile as csv
 import os
-import numpy as np
 
 
 class TestL5XeTreeMethods(unittest.TestCase):

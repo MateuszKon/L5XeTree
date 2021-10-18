@@ -1,7 +1,7 @@
 import L5XeTree as L5X
 
 xml_open = 'unitest\\unitest_file_in.L5X'
-xml_write = 'tmp.L5X'
+xml_write = r'L5X files/tmp.L5X'
 
 with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     xml = """<Rung Use="Target" Number="3" Type="N">

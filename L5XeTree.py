@@ -1,4 +1,5 @@
 import lxml.etree as ET
+import os
 
 try:
     from .modules import *
@@ -1347,6 +1348,7 @@ class L5XeTree:
         with open(xml_write, 'w', encoding='utf-8') as f_w:
             with open(self.TMP_XML_FILE, 'r', encoding='utf-8') as f_r:
                 f_w.write(f_r.read())
+        os.remove(self.TMP_XML_FILE)
         return 0
 
     def decode_string(self, string, decoder='UTF8'):

@@ -1,2 +1,3 @@
 # L5XeTree
-Module for modifying RSLogix projects modification in L5X format
+Module for modifying RSLogix projects
+Modification are in L5X format

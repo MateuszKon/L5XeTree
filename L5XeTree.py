@@ -1232,7 +1232,11 @@ class L5XRung(L5XData):
 
     @property
     def comment(self):
-        return self._get_comment_obj().ctext
+        obj = self._get_comment_obj()
+        if obj is not None:
+            return obj.ctext
+        else:
+            return ""
 
     @comment.setter
     def comment(self, value):

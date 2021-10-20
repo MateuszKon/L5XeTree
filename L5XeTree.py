@@ -47,6 +47,9 @@ class L5XRoot(L5XData):
                 return program
         return None
 
+    def any_program(self):
+        return self.programs[0]
+
     def replace_code(self, old, new, count=0):
         for program in self.programs:
             program.replace_code(old, new, count)
@@ -1175,6 +1178,15 @@ class L5XProgram(L5XData):
     def routines(self):
         routines: list[L5XRoutine] = self.findall("Routines/Routine")
         return routines
+
+    def routine(self, name):
+        for routine in self.routines:
+            if routine.attrib["Name"] == name:
+                return routine
+        return None
+
+    def any_routine(self):
+        return self.routines[0]
 
     def replace_code(self, old, new, count=0):
         for routine in self.routines:

@@ -449,8 +449,16 @@ class L5XTag(L5XData):
         if self._get_data_obj("Decorated").child().tag in ["Structure", "Array"]:
             return self._get_data_obj("Decorated").child().get_value_element(path_string.split("."), encoder)
         else:
-            raise TypeError("Unexpected xml tag: '" + self.find("./Data[@Format='Decorated']/*").tag + "' expected: " +
-                            '"Structure", "Array"')
+            try:
+                number = int(path_string)
+            except ValueError:
+                number = None
+            if number is not None and self._get_data_obj("Decorated").child().attrib["DataType"] in ["LINT", "DINT", "INT", "SINT"]:
+                return self._get_data_obj("Decorated").child().get_value_element(path_string, encoder)
+            else:
+                raise TypeError(
+                    "Unexpected xml tag: '" + self.find("./Data[@Format='Decorated']/*").tag +
+                    "' during get_value_element expected: " + '"Structure", "Array" or integer')
 
     def set_value_element(self, value, path_string, encoder=None):
         if self._get_data_obj("Decorated").child().tag in ["Structure", "Array"]:
@@ -463,8 +471,16 @@ class L5XTag(L5XData):
                     break
             return self._get_data_obj("Decorated").child().set_value_element(value, path_string.split("."), encoder)
         else:
-            raise TypeError("Unexpected xml tag: '" + self.find("./Data[@Format='Decorated']/*").tag + "' expected: " +
-                            '"Structure", "Array"')
+            try:
+                number = int(path_string)
+            except ValueError:
+                number = None
+            if number is not None and self._get_data_obj("Decorated").child().attrib["DataType"] \
+                    in["LINT", "DINT", "INT", "SINT"]:
+                return self._get_data_obj("Decorated").child().set_value_element(value, path_string, encoder)
+            else:
+                raise TypeError("Unexpected xml tag: '" + self.find("./Data[@Format='Decorated']/*").tag +
+                                "' expected: 'Structure', 'Array'")
 
     def get_names(self, concatenate_path=True, headers=False):
         data_child: L5XAbstractData = self._get_data_obj("Decorated").child()
@@ -1053,6 +1069,28 @@ class L5XTagDataValue(L5XAbstractData):
             self._set_string_value(value, max_string_length, encoder)
         else:
             raise TypeError("Unexpected data type of DataValue: " + data_type)
+
+    def get_value_element(self, path, encoder=None):
+        data_type = self.attrib["DataType"]
+        bit_number = int(path[0])
+        if data_type in ["LINT", "DINT", "INT", "SINT"]:
+            value = int(self.attrib["Value"])
+            return value >> bit_number & 1
+        else:
+            raise TypeError('Unexpected data type of DataValue: "' + data_type + '" during get_value_element')
+
+    def set_value_element(self, value, path, encoder=None):
+        data_type = self.attrib["DataType"]
+        bit_number = int(path[0])
+        if data_type in ["LINT", "DINT", "INT", "SINT"]:
+            old_value = int(self.attrib["Value"])
+            if bool(int(value)):
+                new_value = old_value | (1 << bit_number)
+            else:
+                new_value = old_value & ~(1 << bit_number)
+            self.attrib["Value"] = str(new_value)
+        else:
+            raise TypeError('Unexpected data type of DataValue: "' + data_type + '" during get_value_element')
 
     def get_names(self, leading_name, concatenate_path=True, headers=False):
         if concatenate_path:

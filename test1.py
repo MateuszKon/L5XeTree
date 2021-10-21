@@ -268,5 +268,19 @@ with L5X.L5XeTree(xml_open, remove_blank_text=True) as tree_wrap:
     #     ]
     # ]
     # tag.set_value(new_value)
+    # tag = root.tag("AFTI_SendDataTimer")
+    # print(tag.get_value())
+    # print(tag.get_value_element("PRE"))
+    # print(tag.get_value_element("PRE.2"))
+    # tag.set_value_element("1", "PRE.2")
+    # print(tag.get_value_element("PRE.2"))
+    # tag.set_value_element("0", "PRE.2")
+    # print(tag.get_value_element("PRE.2")),
+    # tag = root.tag("AFTI_ONS")
+    # print(tag.get_value())
+    # tag.set_value_element("1", "2")
+    # print(tag.get_value())
+    # tag.set_value_element("0", "2")
+    # print(tag.get_value())
 
     tree_wrap.save_file(xml_write)

@@ -457,7 +457,7 @@ class L5XTag(L5XData):
                 return self._get_data_obj("Decorated").child().get_value_element(path_string, encoder)
             else:
                 raise TypeError(
-                    "Unexpected xml tag: '" + self.find("./Data[@Format='Decorated']/*").tag +
+                    "Tag: {}; Unexpected xml tag: '".format(self.name) + self.find("./Data[@Format='Decorated']/*").tag +
                     "' during get_value_element expected: " + '"Structure", "Array" or integer')
 
     def set_value_element(self, value, path_string, encoder=None):

@@ -102,9 +102,12 @@ class L5XRoot(L5XData):
         data_type = tag_template_dict.pop("data_type")
         self.new_tag(name, data_type, value=value, encoder=encoder, **tag_template_dict)
 
-    def delete_tag(self, name, scope):
+    def delete_tag_by_name(self, name, scope):
         # delete tag defined by name in specified scope
-        tag = self.tag(name, scope)
+        self.delete_tag(self.tag(name, scope))
+
+    @staticmethod
+    def delete_tag(tag):
         tag.getparent().remove(tag)
 
     def get_data_types_all(self):

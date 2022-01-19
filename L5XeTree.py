@@ -91,6 +91,18 @@ class L5XRoot(L5XData):
             tag_obj.set_value(value, encoder=encoder)
         return tag_obj
 
+    def copy_tag(self, name, template_tag, value=None, encoder=None, **kwargs):
+        # Similar to 'new_tag', inputs with None are get from template_tag: L5XTag
+        # expected kwargs elements: data_type, dimensions, description, comments, radix, tag_type, constant,
+        # external_access, scope
+        tag_template_dict: dict = template_tag.get_template_info()
+        for key in kwargs:
+            if key in tag_template_dict:
+                tag_template_dict[key] = kwargs[key]
+        data_type = tag_template_dict.pop("data_type")
+        self.new_tag(name, data_type, value=value, encoder=encoder, **tag_template_dict)
+
+
     def get_data_types_all(self):
         data_types: list[L5XDataType] = self.findall("Controller/DataTypes/DataType")
         return data_types
@@ -402,7 +414,7 @@ class L5XTag(L5XData):
 
     def get_template_info(self):
         # returns all basic information about tag for copying it (in form of dictionary)
-        return {"data_type": self.data_type, "dimensions": self.dimensions, "radix": self.radix,
+        return {"data_type": self.data_type, "scope": self.scope, "dimensions": self.dimensions, "radix": self.radix,
                 "tag_type": self.tag_type, "constant": self.constant, "external_access": self.external_access}
 
     def get_element_comment(self, operand):

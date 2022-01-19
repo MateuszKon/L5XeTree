@@ -359,6 +359,34 @@ class L5XTag(L5XData):
             return None
 
     @property
+    def radix(self):
+        if 'Radix' in self.attrib:
+            return self.attrib['Radix']
+        else:
+            return None
+
+    @property
+    def tag_type(self):
+        if 'TagType' in self.attrib:
+            return self.attrib['TagType']
+        else:
+            return None
+
+    @property
+    def constant(self):
+        if 'Constant' in self.attrib:
+            return self.attrib['Constant']
+        else:
+            return None
+
+    @property
+    def external_access(self):
+        if 'ExternalAccess' in self.attrib:
+            return self.attrib['ExternalAccess']
+        else:
+            return None
+
+    @property
     def description(self):
         if self._get_description_obj() is not None:
             return self._get_description_obj().ctext
@@ -371,6 +399,11 @@ class L5XTag(L5XData):
             self.insert(0, L5XDescription(value))
         else:
             self._get_description_obj().desc = value
+
+    def get_template_info(self):
+        # returns all basic information about tag for copying it (in form of dictionary)
+        return {"data_type": self.data_type, "dimensions": self.dimensions, "radix": self.radix,
+                "tag_type": self.tag_type, "constant": self.constant, "external_access": self.external_access}
 
     def get_element_comment(self, operand):
         if self._get_comment_obj(operand) is not None:
